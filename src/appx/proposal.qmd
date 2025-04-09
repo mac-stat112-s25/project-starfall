@@ -1,5 +1,163 @@
----
-title: "Proposal"
----
-
-Your proposal will go here.
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="quarto" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Stock Market Volatility: Patterns and Predictions</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2em;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 1.5em;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5em;
+    }
+    h2 {
+      color: #3498db;
+      margin-top: 1.5em;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.3em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+    th, td {
+      padding: 0.5em;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f8f8f8;
+      text-align: left;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stock Market Volatility: Patterns and Predictions</h1>
+  </header>
+  
+  <section>
+    <h2>Team Members</h2>
+    <ul>
+      <li>Zhijun He</li>
+      <li>Phoebe Pan</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Project Description</h2>
+    <p>
+      Our project will analyze historical stock market fluctuations from 2000-2025, examining how major economic, political, and global events impact market volatility across different sectors. We'll collect and analyze comprehensive market data to identify patterns that precede significant market movements and evaluate the effectiveness of various prediction models in anticipating market corrections and rallies.
+    </p >
+  </section>
+  
+  <section>
+    <h2>Motivation and Inspiration</h2>
+    <p>
+      Our team selected this project due to its practical relevance in the financial world. Understanding market volatility has direct applications for investment strategies and risk management, which can benefit both individual investors and financial institutions. The abundance of historical market data spanning multiple market cycles, including several major crashes and recoveries, provides us with rich material for analysis and pattern recognition.
+    </p >
+    <p>
+      We are particularly drawn to the interdisciplinary nature of this project, which allows us to combine financial knowledge, statistical analysis, and machine learning techniques. Recent market fluctuations due to global events have only heightened our interest, as they provide timely case studies for our analysis. Both Zhijun and Phoebe share a strong interest in financial markets and quantitative analysis, making this project a natural fit for our skills and academic goals.
+    </p >
+  </section>
+  
+  <section>
+    <h2>Implementation Plan</h2>
+    <p>This accelerated 2-week plan begins on April 9, 2025 and concludes on April 23, 2025.</p >
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Deliverable</th>
+          <th>Team Member</th>
+          <th>Timeline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Data Collection</td>
+          <td>Curated dataset of market indices, sector ETFs, and volatility metrics</td>
+          <td>Zhijun He</td>
+          <td>April 9-11</td>
+        </tr>
+        <tr>
+          <td>Historical Event Mapping</td>
+          <td>Timeline of major events correlated with market movements</td>
+          <td>Phoebe Pan</td>
+          <td>April 9-11</td>
+        </tr>
+        <tr>
+          <td>Exploratory Data Analysis</td>
+          <td>Initial visualizations and statistical summaries</td>
+          <td>Zhijun He</td>
+          <td>April 12-14</td>
+        </tr>
+        <tr>
+          <td>Pattern Identification</td>
+          <td>Report on identified volatility patterns</td>
+          <td>Both members</td>
+          <td>April 14-16</td>
+        </tr>
+        <tr>
+          <td>Model Development</td>
+          <td>Implementation of prediction models</td>
+          <td>Both members</td>
+          <td>April 15-18</td>
+        </tr>
+        <tr>
+          <td>Model Evaluation</td>
+          <td>Performance metrics and comparative analysis</td>
+          <td>Phoebe Pan</td>
+          <td>April 18-20</td>
+        </tr>
+        <tr>
+          <td>Visualization Dashboard</td>
+          <td>Interactive web interface for exploring findings</td>
+          <td>Zhijun He</td>
+          <td>April 18-21</td>
+        </tr>
+        <tr>
+          <td>Documentation</td>
+          <td>Project report, code documentation, and user guide</td>
+          <td>Both members</td>
+          <td>April 19-22</td>
+        </tr>
+        <tr>
+          <td>Final Presentation</td>
+          <td>Slides and demonstration</td>
+          <td>Both members</td>
+          <td>April 23</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  
+  <section>
+    <h2>Expected Outcomes</h2>
+    <p>
+      Upon completion of this two-week project, we expect to deliver:
+    </p >
+    <ul>
+      <li>A comprehensive analysis of market volatility patterns from 2000-2025</li>
+      <li>Identification of leading indicators for market shifts</li>
+      <li>Evaluation of prediction model performance across different market conditions</li>
+      <li>Interactive visualization dashboard for exploring market volatility patterns</li>
+      <li>Recommendations for investors based on historical pattern analysis</li>
+    </ul>
+  </section>
+</body>
+</html>
