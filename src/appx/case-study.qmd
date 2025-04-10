@@ -1,5 +1,14 @@
 ---
 title: "Case Study"
 ---
+This report provides an overview of the German election in 2017. The German electoral system utilizes dual voting mechanisms - citizens cast one vote for a direct candidate in their district and another for a political party, ensuring proportional representation in the Bundestag, Germany's primary legislative body. With at least 598 seats, the Bundestag rarely sees single-party majorities, necessitating coalition formations that exceed 50% representation before electing the chancellor.
 
-Your case study will go here.
+In 2017, Germany's political landscape was dominated by the center-right CDU/CSU and center-left SPD. Within the governing coalition, CDU/CSU maintained a notable advantage in seat distribution. The opposition to this grand coalition comprised two leftist parties. Unlike their American counterparts, major German parties shared common ground on critical issues - both acknowledged mainstream climate science and supported the country's robust social benefits system.
+
+Historical divisions between East and West Germany continue to influence contemporary politics. The Left party, with roots in East Germany's socialist tradition, enjoys substantial support in former eastern territories and Berlin. CDU supporters predominantly reside in southern regions, particularly Bavaria. SPD, meanwhile, draws its strongest backing from the former West. These geographical patterns coincide with economic disparities, as income profiles show significant variation across party supporters.
+
+Alternative for Germany (AfD) began as an anti-euro movement before pivoting toward anti-immigration and nationalist positions following the 2015 refugee crisis. Their platform embraces climate science skepticism and advocates returning to a national currency - positions reflecting more extreme nationalist tendencies than comparable movements. AfD's supporter demographics mirror Trump's base: disproportionately male and typically lacking college education. While the party finds traction in the economically challenged former East, its support base defies simple geographical or economic categorization.
+
+The SPD confronts an identity crisis, attempting to balance progressive values that appeal to social liberals while maintaining its traditional working-class foundation. Simultaneously, the Free Democratic Party (FDP), absent from parliament since 2013, seeks reentry under refreshed leadership.
+
+As Election Day approached, Chancellor Angela Merkel's CDU maintained a commanding lead in polls, indicating her likely continuation in office. Nevertheless, potential realignments in coalition arrangements could substantially alter Germany's governance structure in unexpected ways.
