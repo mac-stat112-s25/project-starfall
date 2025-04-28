@@ -41,7 +41,9 @@ book:
   appendices:
   - src/appx/proposal.qmd
   - src/appx/case-study.qmd
-
+  - src/appx/effective teamwork.qmd
+  - src/EDA.qmd
+  - src/Group Work-Stock Market-IMF.qmd
 
 
 format:
