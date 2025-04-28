@@ -36,6 +36,7 @@ book:
     search: true
 
   chapters:
+  - index.qmd
   - src/Group Work-Stock Market-IMF.qmd
 
   appendices:
