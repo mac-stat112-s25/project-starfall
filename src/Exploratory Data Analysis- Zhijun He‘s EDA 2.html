@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Zhijun He">
+<title>Appendix F — Exploratory Data Analysis: Zhijun He‘s EDA2 – Stock Market Volatility: Patterns and Predictions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../src/EDA.html" rel="prev">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"en"
+  });
+});
+</script><style>html{ scroll-behavior: smooth; }</style>
+<link rel="stylesheet" href="../style/custom.css">
+</head>
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../src/Exploratory Data Analysis- Zhijun He‘s EDA 2.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Starfall</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Report</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/Group Work-Stock Market-IMF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stock Market Volatility: Patterns and Predictions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/appx/proposal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Proposal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/appx/case-study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Case Study</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/appx/effective teamwork - Zhijun.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Building Skills for Effective Teamwork-Team Starfall Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/appx/effective teamwork - Phoebe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Effective teamwork</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/EDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/Exploratory Data Analysis- Zhijun He‘s EDA 2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">F.1</span> Introduction</a></li>
+  <li><a href="#data-import-and-preparation" id="toc-data-import-and-preparation" class="nav-link" data-scroll-target="#data-import-and-preparation"><span class="header-section-number">F.2</span> Data Import and Preparation</a></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration"><span class="header-section-number">F.3</span> Data Exploration</a></li>
+  <li><a href="#volatility-analysis" id="toc-volatility-analysis" class="nav-link" data-scroll-target="#volatility-analysis"><span class="header-section-number">F.4</span> Volatility Analysis</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><span class="header-section-number">F.5</span> Visualization</a></li>
+  <li><a href="#market-correlation-analysis" id="toc-market-correlation-analysis" class="nav-link" data-scroll-target="#market-correlation-analysis"><span class="header-section-number">F.6</span> Market Correlation Analysis</a></li>
+  <li><a href="#seasonal-patterns" id="toc-seasonal-patterns" class="nav-link" data-scroll-target="#seasonal-patterns"><span class="header-section-number">F.7</span> Seasonal Patterns</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics"><span class="header-section-number">F.8</span> Summary Statistics</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">F.9</span> Conclusion</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../src/Exploratory Data Analysis- Zhijun He‘s EDA 2.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Appendix F — Exploratory Data Analysis: Zhijun He‘s EDA2</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Zhijun He </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="introduction" class="level2" data-number="F.1"><h2 data-number="F.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">F.1</span> Introduction</h2>
+<p>In this document, I present my exploratory data analysis (EDA) for our group project, focusing on stock market volatility patterns and predictors across major global markets from 2000 to 2025.</p>
+</section><section id="data-import-and-preparation" class="level2" data-number="F.2"><h2 data-number="F.2" class="anchored" data-anchor-id="data-import-and-preparation">
+<span class="header-section-number">F.2</span> Data Import and Preparation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># I'll first load all necessary packages for my analysis</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)  <span class="co"># For data manipulation and visualization</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(tidyquant)  <span class="co"># For accessing financial data</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(lubridate)  <span class="co"># For handling dates</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(TTR)        <span class="co"># For technical trading rules functions</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(zoo)        <span class="co"># For time series objects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># I've selected these major global indices for my analysis</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>indices <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="st">"^GSPC"</span> <span class="ot">=</span> <span class="st">"S&amp;P 500"</span>,       <span class="co"># USA</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="st">"^FTSE"</span> <span class="ot">=</span> <span class="st">"FTSE 100"</span>,      <span class="co"># UK</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="st">"^N225"</span> <span class="ot">=</span> <span class="st">"Nikkei 225"</span>,    <span class="co"># Japan</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="st">"^GDAXI"</span> <span class="ot">=</span> <span class="st">"DAX"</span>,          <span class="co"># Germany</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="st">"^FCHI"</span> <span class="ot">=</span> <span class="st">"CAC 40"</span>,        <span class="co"># France</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="st">"^HSI"</span> <span class="ot">=</span> <span class="st">"Hang Seng"</span>       <span class="co"># Hong Kong</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># I'm importing daily data for all indices from 2000 onwards</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>market_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(</span>
+<span id="cb2-13"><a href="#cb2-13"></a>  <span class="fu">names</span>(indices),</span>
+<span id="cb2-14"><a href="#cb2-14"></a>  <span class="at">get =</span> <span class="st">"stock.prices"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15"></a>  <span class="at">from =</span> <span class="st">"2000-01-01"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16"></a>  <span class="at">to =</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb2-17"><a href="#cb2-17"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a>  <span class="co"># Adding descriptive names for better readability in my visualizations</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>  <span class="fu">mutate</span>(<span class="at">index_name =</span> indices[symbol])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="data-exploration" class="level2" data-number="F.3"><h2 data-number="F.3" class="anchored" data-anchor-id="data-exploration">
+<span class="header-section-number">F.3</span> Data Exploration</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Let me examine the structure and quality of my dataset</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">cat</span>(<span class="st">"My Dataset Overview:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>My Dataset Overview:</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">cat</span>(<span class="st">"- Number of observations:"</span>, <span class="fu">nrow</span>(market_data), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>- Number of observations: 38428 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">cat</span>(<span class="st">"- Date range:"</span>, <span class="fu">min</span>(market_data<span class="sc">$</span>date), <span class="st">"to"</span>, <span class="fu">max</span>(market_data<span class="sc">$</span>date), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>- Date range: 10959 to 20206 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">cat</span>(<span class="st">"- Number of indices:"</span>, <span class="fu">length</span>(<span class="fu">unique</span>(market_data<span class="sc">$</span>symbol)), <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>- Number of indices: 6 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># I'll check for missing values in my dataset</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>missing_values <span class="ot">&lt;-</span> market_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.)))) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), </span>
+<span id="cb11-5"><a href="#cb11-5"></a>               <span class="at">names_to =</span> <span class="st">"Variable"</span>, </span>
+<span id="cb11-6"><a href="#cb11-6"></a>               <span class="at">values_to =</span> <span class="st">"Missing_Count"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>  <span class="fu">filter</span>(Missing_Count <span class="sc">&gt;</span> <span class="dv">0</span>)  <span class="co"># Only showing variables with missing values</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="cf">if</span>(<span class="fu">nrow</span>(missing_values) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb11-10"><a href="#cb11-10"></a>  <span class="fu">print</span>(missing_values)</span>
+<span id="cb11-11"><a href="#cb11-11"></a>} <span class="cf">else</span> {</span>
+<span id="cb11-12"><a href="#cb11-12"></a>  <span class="fu">cat</span>(<span class="st">"I found no missing values in my dataset.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb11-13"><a href="#cb11-13"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  Variable Missing_Count
+  &lt;chr&gt;            &lt;int&gt;
+1 open               330
+2 high               330
+3 low                330
+4 close              330
+5 volume             330
+6 adjusted           330</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># I'll take a quick look at the first few rows</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">head</span>(market_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 9
+  symbol date        open  high   low close     volume adjusted index_name
+  &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;     
+1 ^GSPC  2000-01-03 1469. 1478  1438. 1455.  931800000    1455. S&amp;P 500   
+2 ^GSPC  2000-01-04 1455. 1455. 1397. 1399. 1009000000    1399. S&amp;P 500   
+3 ^GSPC  2000-01-05 1399. 1413. 1378. 1402. 1085500000    1402. S&amp;P 500   
+4 ^GSPC  2000-01-06 1402. 1412. 1392. 1403. 1092300000    1403. S&amp;P 500   
+5 ^GSPC  2000-01-07 1403. 1441. 1401. 1441. 1225200000    1441. S&amp;P 500   
+6 ^GSPC  2000-01-10 1441. 1464. 1441. 1458. 1064800000    1458. S&amp;P 500   </code></pre>
+</div>
+</div>
+<p>My dataset contains daily trading information for six major global indices from January 2000 onwards. I’ve collected date, opening, high, low, and closing prices, trading volume, and adjusted closing price for each index. This comprehensive dataset will allow me to analyze market behavior across different regions and economic conditions.</p>
+</section><section id="volatility-analysis" class="level2" data-number="F.4"><h2 data-number="F.4" class="anchored" data-anchor-id="volatility-analysis">
+<span class="header-section-number">F.4</span> Volatility Analysis</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># I'll calculate daily returns and volatility metrics for my analysis</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>market_analysis <span class="ot">&lt;-</span> market_data <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">group_by</span>(symbol, index_name) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="co"># Computing daily percentage returns</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb15-7"><a href="#cb15-7"></a>    <span class="at">daily_return =</span> (adjusted <span class="sc">/</span> <span class="fu">lag</span>(adjusted) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb15-8"><a href="#cb15-8"></a>    <span class="co"># Adding a 20-day rolling volatility measure (annualized)</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a>    <span class="at">rolling_vol_20 =</span> <span class="fu">rollapply</span>(</span>
+<span id="cb15-10"><a href="#cb15-10"></a>      daily_return,</span>
+<span id="cb15-11"><a href="#cb15-11"></a>      <span class="at">width =</span> <span class="dv">20</span>,</span>
+<span id="cb15-12"><a href="#cb15-12"></a>      <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">252</span>),</span>
+<span id="cb15-13"><a href="#cb15-13"></a>      <span class="at">align =</span> <span class="st">"right"</span>,</span>
+<span id="cb15-14"><a href="#cb15-14"></a>      <span class="at">fill =</span> <span class="cn">NA</span></span>
+<span id="cb15-15"><a href="#cb15-15"></a>    )</span>
+<span id="cb15-16"><a href="#cb15-16"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="visualization" class="level2" data-number="F.5"><h2 data-number="F.5" class="anchored" data-anchor-id="visualization">
+<span class="header-section-number">F.5</span> Visualization</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># I'll visualize the long-term price trends for all indices</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">ggplot</span>(market_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> adjusted, <span class="at">color =</span> index_name)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.7</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-5"><a href="#cb16-5"></a>    <span class="at">title =</span> <span class="st">"Adjusted Closing Prices of Major Global Indices (2000-Present)"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6"></a>    <span class="at">subtitle =</span> <span class="st">"My comparison of long-term trends across different markets"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8"></a>    <span class="at">y =</span> <span class="st">"Adjusted Closing Price"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9"></a>    <span class="at">color =</span> <span class="st">"Index"</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 years"</span>, <span class="at">date_labels =</span> <span class="st">"%Y"</span>) <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb16-14"><a href="#cb16-14"></a>  <span class="fu">theme</span>(</span>
+<span id="cb16-15"><a href="#cb16-15"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb16-16"><a href="#cb16-16"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb16-17"><a href="#cb16-17"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb16-18"><a href="#cb16-18"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Exploratory-Data-Analysis--Zhijun-He‘s-EDA-2_files/figure-html/price_trends-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In my price trend analysis, I observe long-term upward trajectories for all six major global indices, though with varying magnitudes and volatility. I find that the S&amp;P 500 demonstrates the most consistent growth pattern. In contrast, I notice that the Hang Seng and Nikkei 225 exhibit both higher price levels and greater volatility, particularly during the financial crises of 2008 and 2020. My analysis shows that while all indices suffered notable declines during these periods, each demonstrated its own distinctive recovery pace.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># I'll normalize the volume data to make my comparisons more meaningful across indices</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>normalized_volume <span class="ot">&lt;-</span> market_data <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-5"><a href="#cb17-5"></a>    <span class="at">norm_volume =</span> volume <span class="sc">/</span> <span class="fu">mean</span>(volume, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-6"><a href="#cb17-6"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb17-8"><a href="#cb17-8"></a></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="co"># Now I'll create my volume visualization</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a><span class="fu">ggplot</span>(normalized_volume, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> norm_volume, <span class="at">color =</span> index_name)) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb17-12"><a href="#cb17-12"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-13"><a href="#cb17-13"></a>    <span class="at">title =</span> <span class="st">"Normalized Trading Volume by Index (2000-Present)"</span>,</span>
+<span id="cb17-14"><a href="#cb17-14"></a>    <span class="at">subtitle =</span> <span class="st">"My analysis of volume patterns relative to mean levels"</span>,</span>
+<span id="cb17-15"><a href="#cb17-15"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb17-16"><a href="#cb17-16"></a>    <span class="at">y =</span> <span class="st">"Normalized Trading Volume"</span>,</span>
+<span id="cb17-17"><a href="#cb17-17"></a>    <span class="at">color =</span> <span class="st">"Index"</span></span>
+<span id="cb17-18"><a href="#cb17-18"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-19"><a href="#cb17-19"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 years"</span>, <span class="at">date_labels =</span> <span class="st">"%Y"</span>) <span class="sc">+</span></span>
+<span id="cb17-20"><a href="#cb17-20"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
+<span id="cb17-21"><a href="#cb17-21"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-22"><a href="#cb17-22"></a>  <span class="fu">theme</span>(</span>
+<span id="cb17-23"><a href="#cb17-23"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb17-24"><a href="#cb17-24"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb17-25"><a href="#cb17-25"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb17-26"><a href="#cb17-26"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Exploratory-Data-Analysis--Zhijun-He‘s-EDA-2_files/figure-html/volume_trends-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>My analysis of normalized trading volumes reveals significant insights across indices. I’ve normalized the data to enable fair comparisons between markets of different sizes. I can clearly identify peaks in trading activity during major market events like the 2008 financial crisis and the 2020 pandemic. In my observations, the S&amp;P 500 and Hang Seng Index demonstrate the most volatile trading patterns, particularly after 2010. I believe this increased volatility likely stems from growing global participation in the US and Chinese markets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># I'll visualize the volatility patterns I've calculated</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>market_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(rolling_vol_20)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> rolling_vol_20, <span class="at">color =</span> index_name)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-7"><a href="#cb18-7"></a>    <span class="at">title =</span> <span class="st">"20-Day Rolling Volatility of Major Indices (Annualized)"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>    <span class="at">subtitle =</span> <span class="st">"My analysis of market uncertainty over time"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10"></a>    <span class="at">y =</span> <span class="st">"Annualized Volatility (%)"</span>,</span>
+<span id="cb18-11"><a href="#cb18-11"></a>    <span class="at">color =</span> <span class="st">"Index"</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 years"</span>, <span class="at">date_labels =</span> <span class="st">"%Y"</span>) <span class="sc">+</span></span>
+<span id="cb18-14"><a href="#cb18-14"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">scale =</span> <span class="fl">0.01</span>)) <span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a>  <span class="fu">theme</span>(</span>
+<span id="cb18-17"><a href="#cb18-17"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb18-18"><a href="#cb18-18"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb18-19"><a href="#cb18-19"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb18-20"><a href="#cb18-20"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Exploratory-Data-Analysis--Zhijun-He‘s-EDA-2_files/figure-html/volatility_comparison-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="market-correlation-analysis" class="level2" data-number="F.6"><h2 data-number="F.6" class="anchored" data-anchor-id="market-correlation-analysis">
+<span class="header-section-number">F.6</span> Market Correlation Analysis</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># I want to understand how these markets move together</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="co"># First I'll prepare daily returns by index</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>daily_returns <span class="ot">&lt;-</span> market_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">select</span>(date, symbol, daily_return) <span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(daily_return)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb19-7"><a href="#cb19-7"></a>    <span class="at">names_from =</span> symbol,</span>
+<span id="cb19-8"><a href="#cb19-8"></a>    <span class="at">values_from =</span> daily_return</span>
+<span id="cb19-9"><a href="#cb19-9"></a>  )</span>
+<span id="cb19-10"><a href="#cb19-10"></a></span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="co"># Now I'll calculate my correlation matrix</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a>cor_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(</span>
+<span id="cb19-13"><a href="#cb19-13"></a>  daily_returns <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>date), </span>
+<span id="cb19-14"><a href="#cb19-14"></a>  <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span></span>
+<span id="cb19-15"><a href="#cb19-15"></a>)</span>
+<span id="cb19-16"><a href="#cb19-16"></a></span>
+<span id="cb19-17"><a href="#cb19-17"></a><span class="co"># Converting to long format for my visualization</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a>cor_data <span class="ot">&lt;-</span> cor_matrix <span class="sc">%&gt;%</span></span>
+<span id="cb19-19"><a href="#cb19-19"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb19-20"><a href="#cb19-20"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"Index1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-21"><a href="#cb19-21"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb19-22"><a href="#cb19-22"></a>    <span class="at">cols =</span> <span class="sc">-</span>Index1,</span>
+<span id="cb19-23"><a href="#cb19-23"></a>    <span class="at">names_to =</span> <span class="st">"Index2"</span>,</span>
+<span id="cb19-24"><a href="#cb19-24"></a>    <span class="at">values_to =</span> <span class="st">"Correlation"</span></span>
+<span id="cb19-25"><a href="#cb19-25"></a>  )</span>
+<span id="cb19-26"><a href="#cb19-26"></a></span>
+<span id="cb19-27"><a href="#cb19-27"></a><span class="co"># Mapping index symbols to names for better readability in my plot</span></span>
+<span id="cb19-28"><a href="#cb19-28"></a>cor_data <span class="ot">&lt;-</span> cor_data <span class="sc">%&gt;%</span></span>
+<span id="cb19-29"><a href="#cb19-29"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-30"><a href="#cb19-30"></a>    <span class="at">Index1_Name =</span> indices[Index1],</span>
+<span id="cb19-31"><a href="#cb19-31"></a>    <span class="at">Index2_Name =</span> indices[Index2]</span>
+<span id="cb19-32"><a href="#cb19-32"></a>  )</span>
+<span id="cb19-33"><a href="#cb19-33"></a></span>
+<span id="cb19-34"><a href="#cb19-34"></a><span class="co"># Creating my correlation heatmap</span></span>
+<span id="cb19-35"><a href="#cb19-35"></a><span class="fu">ggplot</span>(cor_data, <span class="fu">aes</span>(<span class="at">x =</span> Index1_Name, <span class="at">y =</span> Index2_Name, <span class="at">fill =</span> Correlation)) <span class="sc">+</span></span>
+<span id="cb19-36"><a href="#cb19-36"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb19-37"><a href="#cb19-37"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Correlation, <span class="dv">2</span>)), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb19-38"><a href="#cb19-38"></a>  <span class="fu">scale_fill_gradient2</span>(</span>
+<span id="cb19-39"><a href="#cb19-39"></a>    <span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">mid =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"red"</span>,</span>
+<span id="cb19-40"><a href="#cb19-40"></a>    <span class="at">midpoint =</span> <span class="fl">0.5</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb19-41"><a href="#cb19-41"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-42"><a href="#cb19-42"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-43"><a href="#cb19-43"></a>    <span class="at">title =</span> <span class="st">"My Correlation Analysis of Daily Returns (2000-Present)"</span>,</span>
+<span id="cb19-44"><a href="#cb19-44"></a>    <span class="at">subtitle =</span> <span class="st">"Higher values indicate stronger co-movement between markets"</span>,</span>
+<span id="cb19-45"><a href="#cb19-45"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb19-46"><a href="#cb19-46"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-47"><a href="#cb19-47"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb19-48"><a href="#cb19-48"></a>  <span class="fu">theme</span>(</span>
+<span id="cb19-49"><a href="#cb19-49"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb19-50"><a href="#cb19-50"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb19-51"><a href="#cb19-51"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Exploratory-Data-Analysis--Zhijun-He‘s-EDA-2_files/figure-html/correlation_analysis-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="seasonal-patterns" class="level2" data-number="F.7"><h2 data-number="F.7" class="anchored" data-anchor-id="seasonal-patterns">
+<span class="header-section-number">F.7</span> Seasonal Patterns</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># I'm interested in identifying seasonal patterns in returns</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>seasonal_data <span class="ot">&lt;-</span> market_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="at">month =</span> <span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-5"><a href="#cb20-5"></a>    <span class="at">year =</span> <span class="fu">year</span>(date)</span>
+<span id="cb20-6"><a href="#cb20-6"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(daily_return))</span>
+<span id="cb20-8"><a href="#cb20-8"></a></span>
+<span id="cb20-9"><a href="#cb20-9"></a><span class="co"># I'll calculate average monthly returns by index</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a>monthly_returns <span class="ot">&lt;-</span> seasonal_data <span class="sc">%&gt;%</span></span>
+<span id="cb20-11"><a href="#cb20-11"></a>  <span class="fu">group_by</span>(index_name, month) <span class="sc">%&gt;%</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb20-13"><a href="#cb20-13"></a>    <span class="at">avg_return =</span> <span class="fu">mean</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-14"><a href="#cb20-14"></a>    <span class="at">volatility =</span> <span class="fu">sd</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-15"><a href="#cb20-15"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb20-16"><a href="#cb20-16"></a>  )</span>
+<span id="cb20-17"><a href="#cb20-17"></a></span>
+<span id="cb20-18"><a href="#cb20-18"></a><span class="co"># Now I'll visualize my monthly return patterns</span></span>
+<span id="cb20-19"><a href="#cb20-19"></a><span class="fu">ggplot</span>(monthly_returns, <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> avg_return, <span class="at">fill =</span> index_name)) <span class="sc">+</span></span>
+<span id="cb20-20"><a href="#cb20-20"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb20-21"><a href="#cb20-21"></a>  <span class="fu">geom_errorbar</span>(</span>
+<span id="cb20-22"><a href="#cb20-22"></a>    <span class="fu">aes</span>(<span class="at">ymin =</span> avg_return <span class="sc">-</span> volatility<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">20</span>), </span>
+<span id="cb20-23"><a href="#cb20-23"></a>        <span class="at">ymax =</span> avg_return <span class="sc">+</span> volatility<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">20</span>)),</span>
+<span id="cb20-24"><a href="#cb20-24"></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>),</span>
+<span id="cb20-25"><a href="#cb20-25"></a>    <span class="at">width =</span> <span class="fl">0.2</span></span>
+<span id="cb20-26"><a href="#cb20-26"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-27"><a href="#cb20-27"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-28"><a href="#cb20-28"></a>    <span class="at">title =</span> <span class="st">"My Analysis of Average Monthly Returns by Index"</span>,</span>
+<span id="cb20-29"><a href="#cb20-29"></a>    <span class="at">subtitle =</span> <span class="st">"With standard error bars to show confidence in my findings"</span>,</span>
+<span id="cb20-30"><a href="#cb20-30"></a>    <span class="at">x =</span> <span class="st">"Month"</span>,</span>
+<span id="cb20-31"><a href="#cb20-31"></a>    <span class="at">y =</span> <span class="st">"Average Daily Return (%)"</span>,</span>
+<span id="cb20-32"><a href="#cb20-32"></a>    <span class="at">fill =</span> <span class="st">"Index"</span></span>
+<span id="cb20-33"><a href="#cb20-33"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-34"><a href="#cb20-34"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb20-35"><a href="#cb20-35"></a>  <span class="fu">theme</span>(</span>
+<span id="cb20-36"><a href="#cb20-36"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb20-37"><a href="#cb20-37"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb20-38"><a href="#cb20-38"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Exploratory-Data-Analysis--Zhijun-He‘s-EDA-2_files/figure-html/seasonal_analysis-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="summary-statistics" class="level2" data-number="F.8"><h2 data-number="F.8" class="anchored" data-anchor-id="summary-statistics">
+<span class="header-section-number">F.8</span> Summary Statistics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># I'll generate comprehensive summary statistics for my report</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>market_summary <span class="ot">&lt;-</span> market_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">group_by</span>(index_name) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb21-5"><a href="#cb21-5"></a>    <span class="at">avg_daily_return =</span> <span class="fu">mean</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb21-6"><a href="#cb21-6"></a>    <span class="at">median_daily_return =</span> <span class="fu">median</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb21-7"><a href="#cb21-7"></a>    <span class="at">volatility =</span> <span class="fu">sd</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb21-8"><a href="#cb21-8"></a>    <span class="at">min_return =</span> <span class="fu">min</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb21-9"><a href="#cb21-9"></a>    <span class="at">max_return =</span> <span class="fu">max</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb21-10"><a href="#cb21-10"></a>    <span class="at">sharpe_ratio =</span> <span class="fu">mean</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sd</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb21-11"><a href="#cb21-11"></a>    <span class="at">data_completeness =</span> <span class="dv">1</span> <span class="sc">-</span> (<span class="fu">sum</span>(<span class="fu">is.na</span>(daily_return)) <span class="sc">/</span> <span class="fu">n</span>())</span>
+<span id="cb21-12"><a href="#cb21-12"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb21-13"><a href="#cb21-13"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(sharpe_ratio))</span>
+<span id="cb21-14"><a href="#cb21-14"></a></span>
+<span id="cb21-15"><a href="#cb21-15"></a><span class="co"># I'll display my summary statistics in a clean table</span></span>
+<span id="cb21-16"><a href="#cb21-16"></a>market_summary <span class="sc">%&gt;%</span></span>
+<span id="cb21-17"><a href="#cb21-17"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb21-18"><a href="#cb21-18"></a>    <span class="at">digits =</span> <span class="dv">4</span>,</span>
+<span id="cb21-19"><a href="#cb21-19"></a>    <span class="at">caption =</span> <span class="st">"My Summary Statistics by Index (2000-Present)"</span></span>
+<span id="cb21-20"><a href="#cb21-20"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>My Summary Statistics by Index (2000-Present)</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 15%">
+<col style="width: 17%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 16%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">index_name</th>
+<th style="text-align: right;">avg_daily_return</th>
+<th style="text-align: right;">median_daily_return</th>
+<th style="text-align: right;">volatility</th>
+<th style="text-align: right;">min_return</th>
+<th style="text-align: right;">max_return</th>
+<th style="text-align: right;">sharpe_ratio</th>
+<th style="text-align: right;">data_completeness</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S&amp;P 500</td>
+<td style="text-align: right;">0.0285</td>
+<td style="text-align: right;">0.0606</td>
+<td style="text-align: right;">1.2304</td>
+<td style="text-align: right;">-11.9841</td>
+<td style="text-align: right;">11.5800</td>
+<td style="text-align: right;">0.0232</td>
+<td style="text-align: right;">0.9998</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DAX</td>
+<td style="text-align: right;">0.0271</td>
+<td style="text-align: right;">0.0766</td>
+<td style="text-align: right;">1.4249</td>
+<td style="text-align: right;">-12.2386</td>
+<td style="text-align: right;">11.4020</td>
+<td style="text-align: right;">0.0190</td>
+<td style="text-align: right;">0.9890</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nikkei 225</td>
+<td style="text-align: right;">0.0143</td>
+<td style="text-align: right;">0.0468</td>
+<td style="text-align: right;">1.4588</td>
+<td style="text-align: right;">-12.3958</td>
+<td style="text-align: right;">14.1503</td>
+<td style="text-align: right;">0.0098</td>
+<td style="text-align: right;">0.9652</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CAC 40</td>
+<td style="text-align: right;">0.0119</td>
+<td style="text-align: right;">0.0448</td>
+<td style="text-align: right;">1.3846</td>
+<td style="text-align: right;">-12.2768</td>
+<td style="text-align: right;">11.1762</td>
+<td style="text-align: right;">0.0086</td>
+<td style="text-align: right;">0.9905</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FTSE 100</td>
+<td style="text-align: right;">0.0088</td>
+<td style="text-align: right;">0.0458</td>
+<td style="text-align: right;">1.1442</td>
+<td style="text-align: right;">-10.8738</td>
+<td style="text-align: right;">9.8387</td>
+<td style="text-align: right;">0.0077</td>
+<td style="text-align: right;">0.9863</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hang Seng</td>
+<td style="text-align: right;">0.0114</td>
+<td style="text-align: right;">0.0290</td>
+<td style="text-align: right;">1.4904</td>
+<td style="text-align: right;">-13.2233</td>
+<td style="text-align: right;">14.3471</td>
+<td style="text-align: right;">0.0077</td>
+<td style="text-align: right;">0.9777</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section><section id="conclusion" class="level2" data-number="F.9"><h2 data-number="F.9" class="anchored" data-anchor-id="conclusion">
+<span class="header-section-number">F.9</span> Conclusion</h2>
+<p>Through my exploratory analysis, I’ve uncovered distinct patterns in volatility, returns, and trading activity across major global stock indices. My optimized visualizations highlight market correlations, seasonal patterns, and the varying impacts of major financial events across different markets. These insights from my analysis provide a foundation for our group’s further investigation of volatility predictors and potential trading strategies. As I progress with this project, I plan to explore more advanced volatility modeling techniques and examine how macroeconomic factors influence these patterns across different regions.</p>
+
+
+<!-- -->
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
+      <a href="../src/EDA.html" class="pagination-link" aria-label="Exploratory Data Analysis: Phoebe Pan">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">---</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="an">title:</span><span class="co"> "Exploratory Data Analysis: Zhijun He‘s EDA2"</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="an">author:</span><span class="co"> "Zhijun He"</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="co">---</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="fu">## Introduction</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a>In this document, I present my exploratory data analysis (EDA) for our group project, focusing on stock market volatility patterns and predictors across major global markets from 2000 to 2025.</span>
+<span id="cb22-9"><a href="#cb22-9"></a></span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="fu">## Data Import and Preparation</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a></span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="in">```{r setup, message=FALSE, warning=FALSE}</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a><span class="in"># I'll first load all necessary packages for my analysis</span></span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="in">library(tidyverse)  # For data manipulation and visualization</span></span>
+<span id="cb22-15"><a href="#cb22-15"></a><span class="in">library(tidyquant)  # For accessing financial data</span></span>
+<span id="cb22-16"><a href="#cb22-16"></a><span class="in">library(lubridate)  # For handling dates</span></span>
+<span id="cb22-17"><a href="#cb22-17"></a><span class="in">library(TTR)        # For technical trading rules functions</span></span>
+<span id="cb22-18"><a href="#cb22-18"></a><span class="in">library(zoo)        # For time series objects</span></span>
+<span id="cb22-19"><a href="#cb22-19"></a><span class="in">```</span></span>
+<span id="cb22-20"><a href="#cb22-20"></a></span>
+<span id="cb22-21"><a href="#cb22-21"></a><span class="in">```{r data_import, message=FALSE, warning=FALSE}</span></span>
+<span id="cb22-22"><a href="#cb22-22"></a><span class="in"># I've selected these major global indices for my analysis</span></span>
+<span id="cb22-23"><a href="#cb22-23"></a><span class="in">indices &lt;- c(</span></span>
+<span id="cb22-24"><a href="#cb22-24"></a><span class="in">  "^GSPC" = "S&amp;P 500",       # USA</span></span>
+<span id="cb22-25"><a href="#cb22-25"></a><span class="in">  "^FTSE" = "FTSE 100",      # UK</span></span>
+<span id="cb22-26"><a href="#cb22-26"></a><span class="in">  "^N225" = "Nikkei 225",    # Japan</span></span>
+<span id="cb22-27"><a href="#cb22-27"></a><span class="in">  "^GDAXI" = "DAX",          # Germany</span></span>
+<span id="cb22-28"><a href="#cb22-28"></a><span class="in">  "^FCHI" = "CAC 40",        # France</span></span>
+<span id="cb22-29"><a href="#cb22-29"></a><span class="in">  "^HSI" = "Hang Seng"       # Hong Kong</span></span>
+<span id="cb22-30"><a href="#cb22-30"></a><span class="in">)</span></span>
+<span id="cb22-31"><a href="#cb22-31"></a></span>
+<span id="cb22-32"><a href="#cb22-32"></a><span class="in"># I'm importing daily data for all indices from 2000 onwards</span></span>
+<span id="cb22-33"><a href="#cb22-33"></a><span class="in">market_data &lt;- tq_get(</span></span>
+<span id="cb22-34"><a href="#cb22-34"></a><span class="in">  names(indices),</span></span>
+<span id="cb22-35"><a href="#cb22-35"></a><span class="in">  get = "stock.prices",</span></span>
+<span id="cb22-36"><a href="#cb22-36"></a><span class="in">  from = "2000-01-01",</span></span>
+<span id="cb22-37"><a href="#cb22-37"></a><span class="in">  to = Sys.Date()</span></span>
+<span id="cb22-38"><a href="#cb22-38"></a><span class="in">) %&gt;%</span></span>
+<span id="cb22-39"><a href="#cb22-39"></a><span class="in">  # Adding descriptive names for better readability in my visualizations</span></span>
+<span id="cb22-40"><a href="#cb22-40"></a><span class="in">  mutate(index_name = indices[symbol])</span></span>
+<span id="cb22-41"><a href="#cb22-41"></a><span class="in">```</span></span>
+<span id="cb22-42"><a href="#cb22-42"></a></span>
+<span id="cb22-43"><a href="#cb22-43"></a><span class="fu">## Data Exploration</span></span>
+<span id="cb22-44"><a href="#cb22-44"></a></span>
+<span id="cb22-45"><a href="#cb22-45"></a><span class="in">```{r data_structure, message=FALSE}</span></span>
+<span id="cb22-46"><a href="#cb22-46"></a><span class="in"># Let me examine the structure and quality of my dataset</span></span>
+<span id="cb22-47"><a href="#cb22-47"></a><span class="in">cat("My Dataset Overview:\n")</span></span>
+<span id="cb22-48"><a href="#cb22-48"></a><span class="in">cat("- Number of observations:", nrow(market_data), "\n")</span></span>
+<span id="cb22-49"><a href="#cb22-49"></a><span class="in">cat("- Date range:", min(market_data$date), "to", max(market_data$date), "\n")</span></span>
+<span id="cb22-50"><a href="#cb22-50"></a><span class="in">cat("- Number of indices:", length(unique(market_data$symbol)), "\n\n")</span></span>
+<span id="cb22-51"><a href="#cb22-51"></a></span>
+<span id="cb22-52"><a href="#cb22-52"></a><span class="in"># I'll check for missing values in my dataset</span></span>
+<span id="cb22-53"><a href="#cb22-53"></a><span class="in">missing_values &lt;- market_data %&gt;%</span></span>
+<span id="cb22-54"><a href="#cb22-54"></a><span class="in">  summarize(across(everything(), ~sum(is.na(.)))) %&gt;%</span></span>
+<span id="cb22-55"><a href="#cb22-55"></a><span class="in">  pivot_longer(cols = everything(), </span></span>
+<span id="cb22-56"><a href="#cb22-56"></a><span class="in">               names_to = "Variable", </span></span>
+<span id="cb22-57"><a href="#cb22-57"></a><span class="in">               values_to = "Missing_Count") %&gt;%</span></span>
+<span id="cb22-58"><a href="#cb22-58"></a><span class="in">  filter(Missing_Count &gt; 0)  # Only showing variables with missing values</span></span>
+<span id="cb22-59"><a href="#cb22-59"></a></span>
+<span id="cb22-60"><a href="#cb22-60"></a><span class="in">if(nrow(missing_values) &gt; 0) {</span></span>
+<span id="cb22-61"><a href="#cb22-61"></a><span class="in">  print(missing_values)</span></span>
+<span id="cb22-62"><a href="#cb22-62"></a><span class="in">} else {</span></span>
+<span id="cb22-63"><a href="#cb22-63"></a><span class="in">  cat("I found no missing values in my dataset.\n")</span></span>
+<span id="cb22-64"><a href="#cb22-64"></a><span class="in">}</span></span>
+<span id="cb22-65"><a href="#cb22-65"></a></span>
+<span id="cb22-66"><a href="#cb22-66"></a><span class="in"># I'll take a quick look at the first few rows</span></span>
+<span id="cb22-67"><a href="#cb22-67"></a><span class="in">head(market_data)</span></span>
+<span id="cb22-68"><a href="#cb22-68"></a><span class="in">```</span></span>
+<span id="cb22-69"><a href="#cb22-69"></a></span>
+<span id="cb22-70"><a href="#cb22-70"></a>My dataset contains daily trading information for six major global indices from January 2000 onwards. I've collected date, opening, high, low, and closing prices, trading volume, and adjusted closing price for each index. This comprehensive dataset will allow me to analyze market behavior across different regions and economic conditions.</span>
+<span id="cb22-71"><a href="#cb22-71"></a></span>
+<span id="cb22-72"><a href="#cb22-72"></a><span class="fu">## Volatility Analysis</span></span>
+<span id="cb22-73"><a href="#cb22-73"></a></span>
+<span id="cb22-74"><a href="#cb22-74"></a><span class="in">```{r calculate_returns, message=FALSE}</span></span>
+<span id="cb22-75"><a href="#cb22-75"></a><span class="in"># I'll calculate daily returns and volatility metrics for my analysis</span></span>
+<span id="cb22-76"><a href="#cb22-76"></a><span class="in">market_analysis &lt;- market_data %&gt;%</span></span>
+<span id="cb22-77"><a href="#cb22-77"></a><span class="in">  group_by(symbol, index_name) %&gt;%</span></span>
+<span id="cb22-78"><a href="#cb22-78"></a><span class="in">  arrange(date) %&gt;%</span></span>
+<span id="cb22-79"><a href="#cb22-79"></a><span class="in">  # Computing daily percentage returns</span></span>
+<span id="cb22-80"><a href="#cb22-80"></a><span class="in">  mutate(</span></span>
+<span id="cb22-81"><a href="#cb22-81"></a><span class="in">    daily_return = (adjusted / lag(adjusted) - 1) * 100,</span></span>
+<span id="cb22-82"><a href="#cb22-82"></a><span class="in">    # Adding a 20-day rolling volatility measure (annualized)</span></span>
+<span id="cb22-83"><a href="#cb22-83"></a><span class="in">    rolling_vol_20 = rollapply(</span></span>
+<span id="cb22-84"><a href="#cb22-84"></a><span class="in">      daily_return,</span></span>
+<span id="cb22-85"><a href="#cb22-85"></a><span class="in">      width = 20,</span></span>
+<span id="cb22-86"><a href="#cb22-86"></a><span class="in">      FUN = function(x) sd(x, na.rm = TRUE) * sqrt(252),</span></span>
+<span id="cb22-87"><a href="#cb22-87"></a><span class="in">      align = "right",</span></span>
+<span id="cb22-88"><a href="#cb22-88"></a><span class="in">      fill = NA</span></span>
+<span id="cb22-89"><a href="#cb22-89"></a><span class="in">    )</span></span>
+<span id="cb22-90"><a href="#cb22-90"></a><span class="in">  ) %&gt;%</span></span>
+<span id="cb22-91"><a href="#cb22-91"></a><span class="in">  ungroup()</span></span>
+<span id="cb22-92"><a href="#cb22-92"></a><span class="in">```</span></span>
+<span id="cb22-93"><a href="#cb22-93"></a></span>
+<span id="cb22-94"><a href="#cb22-94"></a><span class="fu">## Visualization</span></span>
+<span id="cb22-95"><a href="#cb22-95"></a></span>
+<span id="cb22-96"><a href="#cb22-96"></a><span class="in">```{r price_trends, fig.width=10, fig.height=6, message=FALSE}</span></span>
+<span id="cb22-97"><a href="#cb22-97"></a><span class="in"># I'll visualize the long-term price trends for all indices</span></span>
+<span id="cb22-98"><a href="#cb22-98"></a><span class="in">ggplot(market_data, aes(x = date, y = adjusted, color = index_name)) +</span></span>
+<span id="cb22-99"><a href="#cb22-99"></a><span class="in">  geom_line(linewidth = 0.7, alpha = 0.8) +</span></span>
+<span id="cb22-100"><a href="#cb22-100"></a><span class="in">  labs(</span></span>
+<span id="cb22-101"><a href="#cb22-101"></a><span class="in">    title = "Adjusted Closing Prices of Major Global Indices (2000-Present)",</span></span>
+<span id="cb22-102"><a href="#cb22-102"></a><span class="in">    subtitle = "My comparison of long-term trends across different markets",</span></span>
+<span id="cb22-103"><a href="#cb22-103"></a><span class="in">    x = "Year",</span></span>
+<span id="cb22-104"><a href="#cb22-104"></a><span class="in">    y = "Adjusted Closing Price",</span></span>
+<span id="cb22-105"><a href="#cb22-105"></a><span class="in">    color = "Index"</span></span>
+<span id="cb22-106"><a href="#cb22-106"></a><span class="in">  ) +</span></span>
+<span id="cb22-107"><a href="#cb22-107"></a><span class="in">  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +</span></span>
+<span id="cb22-108"><a href="#cb22-108"></a><span class="in">  scale_y_continuous(labels = scales::comma) +</span></span>
+<span id="cb22-109"><a href="#cb22-109"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb22-110"><a href="#cb22-110"></a><span class="in">  theme(</span></span>
+<span id="cb22-111"><a href="#cb22-111"></a><span class="in">    legend.position = "bottom",</span></span>
+<span id="cb22-112"><a href="#cb22-112"></a><span class="in">    plot.title = element_text(face = "bold"),</span></span>
+<span id="cb22-113"><a href="#cb22-113"></a><span class="in">    panel.grid.minor = element_blank()</span></span>
+<span id="cb22-114"><a href="#cb22-114"></a><span class="in">  )</span></span>
+<span id="cb22-115"><a href="#cb22-115"></a><span class="in">```</span></span>
+<span id="cb22-116"><a href="#cb22-116"></a></span>
+<span id="cb22-117"><a href="#cb22-117"></a>In my price trend analysis, I observe long-term upward trajectories for all six major global indices, though with varying magnitudes and volatility. I find that the S&amp;P 500 demonstrates the most consistent growth pattern. In contrast, I notice that the Hang Seng and Nikkei 225 exhibit both higher price levels and greater volatility, particularly during the financial crises of 2008 and 2020. My analysis shows that while all indices suffered notable declines during these periods, each demonstrated its own distinctive recovery pace.</span>
+<span id="cb22-118"><a href="#cb22-118"></a></span>
+<span id="cb22-119"><a href="#cb22-119"></a><span class="in">```{r volume_trends, fig.width=10, fig.height=6, message=FALSE}</span></span>
+<span id="cb22-120"><a href="#cb22-120"></a><span class="in"># I'll normalize the volume data to make my comparisons more meaningful across indices</span></span>
+<span id="cb22-121"><a href="#cb22-121"></a><span class="in">normalized_volume &lt;- market_data %&gt;%</span></span>
+<span id="cb22-122"><a href="#cb22-122"></a><span class="in">  group_by(symbol) %&gt;%</span></span>
+<span id="cb22-123"><a href="#cb22-123"></a><span class="in">  mutate(</span></span>
+<span id="cb22-124"><a href="#cb22-124"></a><span class="in">    norm_volume = volume / mean(volume, na.rm = TRUE)</span></span>
+<span id="cb22-125"><a href="#cb22-125"></a><span class="in">  ) %&gt;%</span></span>
+<span id="cb22-126"><a href="#cb22-126"></a><span class="in">  ungroup()</span></span>
+<span id="cb22-127"><a href="#cb22-127"></a></span>
+<span id="cb22-128"><a href="#cb22-128"></a><span class="in"># Now I'll create my volume visualization</span></span>
+<span id="cb22-129"><a href="#cb22-129"></a><span class="in">ggplot(normalized_volume, aes(x = date, y = norm_volume, color = index_name)) +</span></span>
+<span id="cb22-130"><a href="#cb22-130"></a><span class="in">  geom_line(alpha = 0.7) +</span></span>
+<span id="cb22-131"><a href="#cb22-131"></a><span class="in">  labs(</span></span>
+<span id="cb22-132"><a href="#cb22-132"></a><span class="in">    title = "Normalized Trading Volume by Index (2000-Present)",</span></span>
+<span id="cb22-133"><a href="#cb22-133"></a><span class="in">    subtitle = "My analysis of volume patterns relative to mean levels",</span></span>
+<span id="cb22-134"><a href="#cb22-134"></a><span class="in">    x = "Year",</span></span>
+<span id="cb22-135"><a href="#cb22-135"></a><span class="in">    y = "Normalized Trading Volume",</span></span>
+<span id="cb22-136"><a href="#cb22-136"></a><span class="in">    color = "Index"</span></span>
+<span id="cb22-137"><a href="#cb22-137"></a><span class="in">  ) +</span></span>
+<span id="cb22-138"><a href="#cb22-138"></a><span class="in">  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +</span></span>
+<span id="cb22-139"><a href="#cb22-139"></a><span class="in">  scale_y_continuous(labels = scales::comma) +</span></span>
+<span id="cb22-140"><a href="#cb22-140"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb22-141"><a href="#cb22-141"></a><span class="in">  theme(</span></span>
+<span id="cb22-142"><a href="#cb22-142"></a><span class="in">    legend.position = "bottom",</span></span>
+<span id="cb22-143"><a href="#cb22-143"></a><span class="in">    plot.title = element_text(face = "bold"),</span></span>
+<span id="cb22-144"><a href="#cb22-144"></a><span class="in">    panel.grid.minor = element_blank()</span></span>
+<span id="cb22-145"><a href="#cb22-145"></a><span class="in">  )</span></span>
+<span id="cb22-146"><a href="#cb22-146"></a><span class="in">```</span></span>
+<span id="cb22-147"><a href="#cb22-147"></a></span>
+<span id="cb22-148"><a href="#cb22-148"></a>My analysis of normalized trading volumes reveals significant insights across indices. I've normalized the data to enable fair comparisons between markets of different sizes. I can clearly identify peaks in trading activity during major market events like the 2008 financial crisis and the 2020 pandemic. In my observations, the S&amp;P 500 and Hang Seng Index demonstrate the most volatile trading patterns, particularly after 2010. I believe this increased volatility likely stems from growing global participation in the US and Chinese markets.</span>
+<span id="cb22-149"><a href="#cb22-149"></a></span>
+<span id="cb22-150"><a href="#cb22-150"></a><span class="in">```{r volatility_comparison, fig.width=10, fig.height=6, message=FALSE}</span></span>
+<span id="cb22-151"><a href="#cb22-151"></a><span class="in"># I'll visualize the volatility patterns I've calculated</span></span>
+<span id="cb22-152"><a href="#cb22-152"></a><span class="in">market_analysis %&gt;%</span></span>
+<span id="cb22-153"><a href="#cb22-153"></a><span class="in">  filter(!is.na(rolling_vol_20)) %&gt;%</span></span>
+<span id="cb22-154"><a href="#cb22-154"></a><span class="in">  ggplot(aes(x = date, y = rolling_vol_20, color = index_name)) +</span></span>
+<span id="cb22-155"><a href="#cb22-155"></a><span class="in">  geom_line(alpha = 0.8) +</span></span>
+<span id="cb22-156"><a href="#cb22-156"></a><span class="in">  labs(</span></span>
+<span id="cb22-157"><a href="#cb22-157"></a><span class="in">    title = "20-Day Rolling Volatility of Major Indices (Annualized)",</span></span>
+<span id="cb22-158"><a href="#cb22-158"></a><span class="in">    subtitle = "My analysis of market uncertainty over time",</span></span>
+<span id="cb22-159"><a href="#cb22-159"></a><span class="in">    x = "Year",</span></span>
+<span id="cb22-160"><a href="#cb22-160"></a><span class="in">    y = "Annualized Volatility (%)",</span></span>
+<span id="cb22-161"><a href="#cb22-161"></a><span class="in">    color = "Index"</span></span>
+<span id="cb22-162"><a href="#cb22-162"></a><span class="in">  ) +</span></span>
+<span id="cb22-163"><a href="#cb22-163"></a><span class="in">  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +</span></span>
+<span id="cb22-164"><a href="#cb22-164"></a><span class="in">  scale_y_continuous(labels = scales::percent_format(scale = 0.01)) +</span></span>
+<span id="cb22-165"><a href="#cb22-165"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb22-166"><a href="#cb22-166"></a><span class="in">  theme(</span></span>
+<span id="cb22-167"><a href="#cb22-167"></a><span class="in">    legend.position = "bottom",</span></span>
+<span id="cb22-168"><a href="#cb22-168"></a><span class="in">    plot.title = element_text(face = "bold"),</span></span>
+<span id="cb22-169"><a href="#cb22-169"></a><span class="in">    panel.grid.minor = element_blank()</span></span>
+<span id="cb22-170"><a href="#cb22-170"></a><span class="in">  )</span></span>
+<span id="cb22-171"><a href="#cb22-171"></a><span class="in">```</span></span>
+<span id="cb22-172"><a href="#cb22-172"></a></span>
+<span id="cb22-173"><a href="#cb22-173"></a><span class="fu">## Market Correlation Analysis</span></span>
+<span id="cb22-174"><a href="#cb22-174"></a></span>
+<span id="cb22-175"><a href="#cb22-175"></a><span class="in">```{r correlation_analysis, fig.width=10, fig.height=8, message=FALSE}</span></span>
+<span id="cb22-176"><a href="#cb22-176"></a><span class="in"># I want to understand how these markets move together</span></span>
+<span id="cb22-177"><a href="#cb22-177"></a><span class="in"># First I'll prepare daily returns by index</span></span>
+<span id="cb22-178"><a href="#cb22-178"></a><span class="in">daily_returns &lt;- market_analysis %&gt;%</span></span>
+<span id="cb22-179"><a href="#cb22-179"></a><span class="in">  select(date, symbol, daily_return) %&gt;%</span></span>
+<span id="cb22-180"><a href="#cb22-180"></a><span class="in">  filter(!is.na(daily_return)) %&gt;%</span></span>
+<span id="cb22-181"><a href="#cb22-181"></a><span class="in">  pivot_wider(</span></span>
+<span id="cb22-182"><a href="#cb22-182"></a><span class="in">    names_from = symbol,</span></span>
+<span id="cb22-183"><a href="#cb22-183"></a><span class="in">    values_from = daily_return</span></span>
+<span id="cb22-184"><a href="#cb22-184"></a><span class="in">  )</span></span>
+<span id="cb22-185"><a href="#cb22-185"></a></span>
+<span id="cb22-186"><a href="#cb22-186"></a><span class="in"># Now I'll calculate my correlation matrix</span></span>
+<span id="cb22-187"><a href="#cb22-187"></a><span class="in">cor_matrix &lt;- cor(</span></span>
+<span id="cb22-188"><a href="#cb22-188"></a><span class="in">  daily_returns %&gt;% select(-date), </span></span>
+<span id="cb22-189"><a href="#cb22-189"></a><span class="in">  use = "pairwise.complete.obs"</span></span>
+<span id="cb22-190"><a href="#cb22-190"></a><span class="in">)</span></span>
+<span id="cb22-191"><a href="#cb22-191"></a></span>
+<span id="cb22-192"><a href="#cb22-192"></a><span class="in"># Converting to long format for my visualization</span></span>
+<span id="cb22-193"><a href="#cb22-193"></a><span class="in">cor_data &lt;- cor_matrix %&gt;%</span></span>
+<span id="cb22-194"><a href="#cb22-194"></a><span class="in">  as.data.frame() %&gt;%</span></span>
+<span id="cb22-195"><a href="#cb22-195"></a><span class="in">  rownames_to_column("Index1") %&gt;%</span></span>
+<span id="cb22-196"><a href="#cb22-196"></a><span class="in">  pivot_longer(</span></span>
+<span id="cb22-197"><a href="#cb22-197"></a><span class="in">    cols = -Index1,</span></span>
+<span id="cb22-198"><a href="#cb22-198"></a><span class="in">    names_to = "Index2",</span></span>
+<span id="cb22-199"><a href="#cb22-199"></a><span class="in">    values_to = "Correlation"</span></span>
+<span id="cb22-200"><a href="#cb22-200"></a><span class="in">  )</span></span>
+<span id="cb22-201"><a href="#cb22-201"></a></span>
+<span id="cb22-202"><a href="#cb22-202"></a><span class="in"># Mapping index symbols to names for better readability in my plot</span></span>
+<span id="cb22-203"><a href="#cb22-203"></a><span class="in">cor_data &lt;- cor_data %&gt;%</span></span>
+<span id="cb22-204"><a href="#cb22-204"></a><span class="in">  mutate(</span></span>
+<span id="cb22-205"><a href="#cb22-205"></a><span class="in">    Index1_Name = indices[Index1],</span></span>
+<span id="cb22-206"><a href="#cb22-206"></a><span class="in">    Index2_Name = indices[Index2]</span></span>
+<span id="cb22-207"><a href="#cb22-207"></a><span class="in">  )</span></span>
+<span id="cb22-208"><a href="#cb22-208"></a></span>
+<span id="cb22-209"><a href="#cb22-209"></a><span class="in"># Creating my correlation heatmap</span></span>
+<span id="cb22-210"><a href="#cb22-210"></a><span class="in">ggplot(cor_data, aes(x = Index1_Name, y = Index2_Name, fill = Correlation)) +</span></span>
+<span id="cb22-211"><a href="#cb22-211"></a><span class="in">  geom_tile() +</span></span>
+<span id="cb22-212"><a href="#cb22-212"></a><span class="in">  geom_text(aes(label = round(Correlation, 2)), color = "white", size = 4) +</span></span>
+<span id="cb22-213"><a href="#cb22-213"></a><span class="in">  scale_fill_gradient2(</span></span>
+<span id="cb22-214"><a href="#cb22-214"></a><span class="in">    low = "blue", mid = "white", high = "red",</span></span>
+<span id="cb22-215"><a href="#cb22-215"></a><span class="in">    midpoint = 0.5, limits = c(0, 1)</span></span>
+<span id="cb22-216"><a href="#cb22-216"></a><span class="in">  ) +</span></span>
+<span id="cb22-217"><a href="#cb22-217"></a><span class="in">  labs(</span></span>
+<span id="cb22-218"><a href="#cb22-218"></a><span class="in">    title = "My Correlation Analysis of Daily Returns (2000-Present)",</span></span>
+<span id="cb22-219"><a href="#cb22-219"></a><span class="in">    subtitle = "Higher values indicate stronger co-movement between markets",</span></span>
+<span id="cb22-220"><a href="#cb22-220"></a><span class="in">    x = NULL, y = NULL</span></span>
+<span id="cb22-221"><a href="#cb22-221"></a><span class="in">  ) +</span></span>
+<span id="cb22-222"><a href="#cb22-222"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb22-223"><a href="#cb22-223"></a><span class="in">  theme(</span></span>
+<span id="cb22-224"><a href="#cb22-224"></a><span class="in">    axis.text.x = element_text(angle = 45, hjust = 1),</span></span>
+<span id="cb22-225"><a href="#cb22-225"></a><span class="in">    plot.title = element_text(face = "bold")</span></span>
+<span id="cb22-226"><a href="#cb22-226"></a><span class="in">  )</span></span>
+<span id="cb22-227"><a href="#cb22-227"></a><span class="in">```</span></span>
+<span id="cb22-228"><a href="#cb22-228"></a></span>
+<span id="cb22-229"><a href="#cb22-229"></a><span class="fu">## Seasonal Patterns</span></span>
+<span id="cb22-230"><a href="#cb22-230"></a></span>
+<span id="cb22-231"><a href="#cb22-231"></a><span class="in">```{r seasonal_analysis, fig.width=10, fig.height=6, message=FALSE}</span></span>
+<span id="cb22-232"><a href="#cb22-232"></a><span class="in"># I'm interested in identifying seasonal patterns in returns</span></span>
+<span id="cb22-233"><a href="#cb22-233"></a><span class="in">seasonal_data &lt;- market_analysis %&gt;%</span></span>
+<span id="cb22-234"><a href="#cb22-234"></a><span class="in">  mutate(</span></span>
+<span id="cb22-235"><a href="#cb22-235"></a><span class="in">    month = month(date, label = TRUE),</span></span>
+<span id="cb22-236"><a href="#cb22-236"></a><span class="in">    year = year(date)</span></span>
+<span id="cb22-237"><a href="#cb22-237"></a><span class="in">  ) %&gt;%</span></span>
+<span id="cb22-238"><a href="#cb22-238"></a><span class="in">  filter(!is.na(daily_return))</span></span>
+<span id="cb22-239"><a href="#cb22-239"></a></span>
+<span id="cb22-240"><a href="#cb22-240"></a><span class="in"># I'll calculate average monthly returns by index</span></span>
+<span id="cb22-241"><a href="#cb22-241"></a><span class="in">monthly_returns &lt;- seasonal_data %&gt;%</span></span>
+<span id="cb22-242"><a href="#cb22-242"></a><span class="in">  group_by(index_name, month) %&gt;%</span></span>
+<span id="cb22-243"><a href="#cb22-243"></a><span class="in">  summarize(</span></span>
+<span id="cb22-244"><a href="#cb22-244"></a><span class="in">    avg_return = mean(daily_return, na.rm = TRUE),</span></span>
+<span id="cb22-245"><a href="#cb22-245"></a><span class="in">    volatility = sd(daily_return, na.rm = TRUE),</span></span>
+<span id="cb22-246"><a href="#cb22-246"></a><span class="in">    .groups = "drop"</span></span>
+<span id="cb22-247"><a href="#cb22-247"></a><span class="in">  )</span></span>
+<span id="cb22-248"><a href="#cb22-248"></a></span>
+<span id="cb22-249"><a href="#cb22-249"></a><span class="in"># Now I'll visualize my monthly return patterns</span></span>
+<span id="cb22-250"><a href="#cb22-250"></a><span class="in">ggplot(monthly_returns, aes(x = month, y = avg_return, fill = index_name)) +</span></span>
+<span id="cb22-251"><a href="#cb22-251"></a><span class="in">  geom_col(position = "dodge") +</span></span>
+<span id="cb22-252"><a href="#cb22-252"></a><span class="in">  geom_errorbar(</span></span>
+<span id="cb22-253"><a href="#cb22-253"></a><span class="in">    aes(ymin = avg_return - volatility/sqrt(20), </span></span>
+<span id="cb22-254"><a href="#cb22-254"></a><span class="in">        ymax = avg_return + volatility/sqrt(20)),</span></span>
+<span id="cb22-255"><a href="#cb22-255"></a><span class="in">    position = position_dodge(0.9),</span></span>
+<span id="cb22-256"><a href="#cb22-256"></a><span class="in">    width = 0.2</span></span>
+<span id="cb22-257"><a href="#cb22-257"></a><span class="in">  ) +</span></span>
+<span id="cb22-258"><a href="#cb22-258"></a><span class="in">  labs(</span></span>
+<span id="cb22-259"><a href="#cb22-259"></a><span class="in">    title = "My Analysis of Average Monthly Returns by Index",</span></span>
+<span id="cb22-260"><a href="#cb22-260"></a><span class="in">    subtitle = "With standard error bars to show confidence in my findings",</span></span>
+<span id="cb22-261"><a href="#cb22-261"></a><span class="in">    x = "Month",</span></span>
+<span id="cb22-262"><a href="#cb22-262"></a><span class="in">    y = "Average Daily Return (%)",</span></span>
+<span id="cb22-263"><a href="#cb22-263"></a><span class="in">    fill = "Index"</span></span>
+<span id="cb22-264"><a href="#cb22-264"></a><span class="in">  ) +</span></span>
+<span id="cb22-265"><a href="#cb22-265"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb22-266"><a href="#cb22-266"></a><span class="in">  theme(</span></span>
+<span id="cb22-267"><a href="#cb22-267"></a><span class="in">    legend.position = "bottom",</span></span>
+<span id="cb22-268"><a href="#cb22-268"></a><span class="in">    plot.title = element_text(face = "bold")</span></span>
+<span id="cb22-269"><a href="#cb22-269"></a><span class="in">  )</span></span>
+<span id="cb22-270"><a href="#cb22-270"></a><span class="in">```</span></span>
+<span id="cb22-271"><a href="#cb22-271"></a></span>
+<span id="cb22-272"><a href="#cb22-272"></a><span class="fu">## Summary Statistics</span></span>
+<span id="cb22-273"><a href="#cb22-273"></a></span>
+<span id="cb22-274"><a href="#cb22-274"></a><span class="in">```{r summary_stats, message=FALSE}</span></span>
+<span id="cb22-275"><a href="#cb22-275"></a><span class="in"># I'll generate comprehensive summary statistics for my report</span></span>
+<span id="cb22-276"><a href="#cb22-276"></a><span class="in">market_summary &lt;- market_analysis %&gt;%</span></span>
+<span id="cb22-277"><a href="#cb22-277"></a><span class="in">  group_by(index_name) %&gt;%</span></span>
+<span id="cb22-278"><a href="#cb22-278"></a><span class="in">  summarize(</span></span>
+<span id="cb22-279"><a href="#cb22-279"></a><span class="in">    avg_daily_return = mean(daily_return, na.rm = TRUE),</span></span>
+<span id="cb22-280"><a href="#cb22-280"></a><span class="in">    median_daily_return = median(daily_return, na.rm = TRUE),</span></span>
+<span id="cb22-281"><a href="#cb22-281"></a><span class="in">    volatility = sd(daily_return, na.rm = TRUE),</span></span>
+<span id="cb22-282"><a href="#cb22-282"></a><span class="in">    min_return = min(daily_return, na.rm = TRUE),</span></span>
+<span id="cb22-283"><a href="#cb22-283"></a><span class="in">    max_return = max(daily_return, na.rm = TRUE),</span></span>
+<span id="cb22-284"><a href="#cb22-284"></a><span class="in">    sharpe_ratio = mean(daily_return, na.rm = TRUE) / sd(daily_return, na.rm = TRUE),</span></span>
+<span id="cb22-285"><a href="#cb22-285"></a><span class="in">    data_completeness = 1 - (sum(is.na(daily_return)) / n())</span></span>
+<span id="cb22-286"><a href="#cb22-286"></a><span class="in">  ) %&gt;%</span></span>
+<span id="cb22-287"><a href="#cb22-287"></a><span class="in">  arrange(desc(sharpe_ratio))</span></span>
+<span id="cb22-288"><a href="#cb22-288"></a></span>
+<span id="cb22-289"><a href="#cb22-289"></a><span class="in"># I'll display my summary statistics in a clean table</span></span>
+<span id="cb22-290"><a href="#cb22-290"></a><span class="in">market_summary %&gt;%</span></span>
+<span id="cb22-291"><a href="#cb22-291"></a><span class="in">  knitr::kable(</span></span>
+<span id="cb22-292"><a href="#cb22-292"></a><span class="in">    digits = 4,</span></span>
+<span id="cb22-293"><a href="#cb22-293"></a><span class="in">    caption = "My Summary Statistics by Index (2000-Present)"</span></span>
+<span id="cb22-294"><a href="#cb22-294"></a><span class="in">  )</span></span>
+<span id="cb22-295"><a href="#cb22-295"></a><span class="in">```</span></span>
+<span id="cb22-296"><a href="#cb22-296"></a></span>
+<span id="cb22-297"><a href="#cb22-297"></a><span class="fu">## Conclusion</span></span>
+<span id="cb22-298"><a href="#cb22-298"></a></span>
+<span id="cb22-299"><a href="#cb22-299"></a>Through my exploratory analysis, I've uncovered distinct patterns in volatility, returns, and trading activity across major global stock indices. My optimized visualizations highlight market correlations, seasonal patterns, and the varying impacts of major financial events across different markets. These insights from my analysis provide a foundation for our group's further investigation of volatility predictors and potential trading strategies. As I progress with this project, I plan to explore more advanced volatility modeling techniques and examine how macroeconomic factors influence these patterns across different regions.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

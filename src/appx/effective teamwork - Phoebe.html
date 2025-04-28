@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Phoebe Pan">
-<title>Appendix E — Exploratory Data Analysis: Phoebe Pan – Stock Market Volatility: Patterns and Predictions</title>
+
+<title>Appendix D — Effective teamwork – Stock Market Volatility: Patterns and Predictions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,27 +57,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../src/Exploratory Data Analysis- Zhijun He‘s EDA 2.html" rel="next">
-<link href="../src/appx/effective teamwork - Phoebe.html" rel="prev">
-<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../src/EDA.html" rel="next">
+<link href="../../src/appx/effective teamwork - Zhijun.html" rel="prev">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -100,7 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script type="text/javascript" charset="UTF-8">
+}</script>
+
+<script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
 cookieconsent.run({
   "notice_banner_type":"simple",
@@ -115,28 +122,39 @@ cookieconsent.run({
 "language":"en"
   });
 });
-</script><style>html{ scroll-behavior: smooth; }</style>
-<link rel="stylesheet" href="../style/custom.css">
+</script> 
+  
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../style/custom.css">
 </head>
+
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../src/EDA.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/effective teamwork - Phoebe.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Effective teamwork</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Starfall</a> 
+      <a href="../../">Starfall</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -154,15 +172,15 @@ cookieconsent.run({
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Report</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../src/Group Work-Stock Market-IMF.html" class="sidebar-item-text sidebar-link">
+  <a href="../../src/Group Work-Stock Market-IMF.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stock Market Volatility: Patterns and Predictions</span></span></a>
   </div>
 </li>
@@ -174,65 +192,64 @@ cookieconsent.run({
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../src/appx/proposal.html" class="sidebar-item-text sidebar-link">
+  <a href="../../src/appx/proposal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Proposal</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../src/appx/case-study.html" class="sidebar-item-text sidebar-link">
+  <a href="../../src/appx/case-study.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Case Study</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../src/appx/effective teamwork - Zhijun.html" class="sidebar-item-text sidebar-link">
+  <a href="../../src/appx/effective teamwork - Zhijun.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Building Skills for Effective Teamwork-Team Starfall Reading</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../src/appx/effective teamwork - Phoebe.html" class="sidebar-item-text sidebar-link">
+  <a href="../../src/appx/effective teamwork - Phoebe.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Effective teamwork</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../src/EDA.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../src/EDA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../src/Exploratory Data Analysis- Zhijun He‘s EDA 2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../src/Exploratory Data Analysis- Zhijun He‘s EDA 2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">E.1</span> Introduction</a></li>
-  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import"><span class="header-section-number">E.2</span> Data Import</a></li>
-  </ul></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../src/EDA.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></a></li></ol></nav><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Appendix E — Exploratory Data Analysis: Phoebe Pan</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content column-page-right" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/effective teamwork - Phoebe.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Effective teamwork</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Appendix D — Effective teamwork</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta column-page-right">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -247,117 +264,19 @@ cookieconsent.run({
   
 
 
-</header><section id="introduction" class="level2" data-number="E.1"><h2 data-number="E.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">E.1</span> Introduction</h2>
-<p>This document contains exploratory data analysis (EDA) for the group project, focusing on stock market volatility patterns and predictors across major global markets from 2000 to 2025.</p>
-</section><section id="data-import" class="level2" data-number="E.2"><h2 data-number="E.2" class="anchored" data-anchor-id="data-import">
-<span class="header-section-number">E.2</span> Data Import</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load necessary packages</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.4     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(tidyquant)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Registered S3 method overwritten by 'quantmod':
-  method            from
-  as.zoo.data.frame zoo 
-── Attaching core tidyquant packages ─────────────────────── tidyquant 1.0.11 ──
-✔ PerformanceAnalytics 2.0.8      ✔ TTR                  0.24.4
-✔ quantmod             0.4.27     ✔ xts                  0.14.1── Conflicts ────────────────────────────────────────── tidyquant_conflicts() ──
-✖ zoo::as.Date()                 masks base::as.Date()
-✖ zoo::as.Date.numeric()         masks base::as.Date.numeric()
-✖ dplyr::filter()                masks stats::filter()
-✖ xts::first()                   masks dplyr::first()
-✖ dplyr::lag()                   masks stats::lag()
-✖ xts::last()                    masks dplyr::last()
-✖ PerformanceAnalytics::legend() masks graphics::legend()
-✖ quantmod::summary()            masks base::summary()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">library</span>(TTR)</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">library</span>(zoo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># import the data</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>indices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"^GSPC"</span>, <span class="st">"^FTSE"</span>, <span class="st">"^N225"</span>, <span class="st">"^GDAXI"</span>, <span class="st">"^FCHI"</span>, <span class="st">"^HSI"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a>market_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(indices, <span class="at">get =</span> <span class="st">"stock.prices"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5"></a>                      <span class="at">from =</span> <span class="st">"2000-01-01"</span>,</span>
-<span id="cb6-6"><a href="#cb6-6"></a>                      <span class="at">to =</span> <span class="fu">Sys.Date</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Glimpse of data structure</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">glimpse</span>(market_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 38,410
-Columns: 8
-$ symbol   &lt;chr&gt; "^GSPC", "^GSPC", "^GSPC", "^GSPC", "^GSPC", "^GSPC", "^GSPC"…
-$ date     &lt;date&gt; 2000-01-03, 2000-01-04, 2000-01-05, 2000-01-06, 2000-01-07, …
-$ open     &lt;dbl&gt; 1469.25, 1455.22, 1399.42, 1402.11, 1403.45, 1441.47, 1457.60…
-$ high     &lt;dbl&gt; 1478.00, 1455.22, 1413.27, 1411.90, 1441.47, 1464.36, 1458.66…
-$ low      &lt;dbl&gt; 1438.36, 1397.43, 1377.68, 1392.10, 1400.73, 1441.47, 1434.42…
-$ close    &lt;dbl&gt; 1455.22, 1399.42, 1402.11, 1403.45, 1441.47, 1457.60, 1438.56…
-$ volume   &lt;dbl&gt; 931800000, 1009000000, 1085500000, 1092300000, 1225200000, 10…
-$ adjusted &lt;dbl&gt; 1455.22, 1399.42, 1402.11, 1403.45, 1441.47, 1457.60, 1438.56…</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Check missing values</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">sapply</span>(market_data, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  symbol     date     open     high      low    close   volume adjusted 
-       0        0      330      330      330      330      330      330 </code></pre>
-</div>
-</div>
-<p>This code provides a quick overview of the structure of the market_data dataset, confirming that we have data for multiple major indices with key variables such as open, close, high, low, volume, and adjusted price for each trading day from 2000 to the present.I examined the dataset for missing values and found that a small percentage (330 days) of entries are missing across several columns, including open, high, low, close, volume, and adjusted prices. The presence of missing values is typical for financial datasets due to market holidays or data reporting inconsistencies.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(market_data, <span class="fu">aes</span>(<span class="at">x =</span> adjusted, <span class="at">fill =</span> symbol)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Adjusted Closing Prices"</span>, <span class="at">x =</span> <span class="st">"Adjusted Close (log scale)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> symbol, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 330 rows containing non-finite outside the scale range
-(`stat_bin()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="EDA_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The histogram displays the distribution of adjusted closing prices for each major stock index, with prices shown on a logarithmic scale for better comparison in 25yrs. The log scale reveals the wide variation in price levels between different indices, such as the GSPC and Nikkei 225.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(market_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> adjusted, <span class="at">color =</span> symbol)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Time Series of Adjusted Prices (2000–Present)"</span>, <span class="at">x =</span> <span class="st">"Date"</span>, <span class="at">y =</span> <span class="st">"Adjusted Price"</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="EDA_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The time series plot illustrates the trajectory of adjusted closing prices for all these indices from 2000 to 2025. Notably, the plot highlights the 2008 global financial crisis and the COVID-19 market shock, which appear as periods of sharp price declines or increased volatility across multiple indices.</p>
+</header>
+
+
+<p>In this article “What Google Learned From Its Quest to Build the Perfect Team”, Charles Duhigg explores how Google launched an internal research initiative called Project Aristotle to investigate what makes a team successful. The company studied more than 180 teams to determine why some performed well while others did not, even when team members had similar talent and access to resources.</p>
+<p>Google’s research revealed that psychological safety was the most important ingredient for team success. When members felt safe to speak up, take risks, and admit mistakes without fear, teams performed better. In addition, four other factors played key roles: dependability, structure and clarity, meaning, and impact.</p>
+<p>Interestingly, the team composition mattered less than the collaboration. Teams that communicated openly and respected each other outperformed even the most technically skilled groups. In short, trust and connection beat talent alone.</p>
 
 
 <!-- -->
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -976,81 +895,34 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
-      <a href="../src/appx/effective teamwork - Phoebe.html" class="pagination-link" aria-label="Effective teamwork">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Effective teamwork</span></span>
+</script>
+<nav class="page-navigation column-page-right">
+  <div class="nav-page nav-page-previous">
+      <a href="../../src/appx/effective teamwork - Zhijun.html" class="pagination-link" aria-label="Building Skills for Effective Teamwork-Team Starfall Reading">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Building Skills for Effective Teamwork-Team Starfall Reading</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../src/Exploratory Data Analysis- Zhijun He‘s EDA 2.html" class="pagination-link" aria-label="Exploratory Data Analysis: Zhijun He‘s EDA2">
-        <span class="nav-page-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../src/EDA.html" class="pagination-link" aria-label="Exploratory Data Analysis: Phoebe Pan">
+        <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">---</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="an">title:</span><span class="co"> "Exploratory Data Analysis: Phoebe Pan"</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="an">author:</span><span class="co"> "Phoebe Pan"</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co">---</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="fu">## Introduction</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a></span>
-<span id="cb14-9"><a href="#cb14-9"></a>This document contains exploratory data analysis (EDA) for the group project, focusing on stock market volatility patterns and predictors across major global markets from 2000 to 2025.</span>
-<span id="cb14-10"><a href="#cb14-10"></a></span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="fu">## Data Import</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a></span>
-<span id="cb14-15"><a href="#cb14-15"></a><span class="in">```{r}</span></span>
-<span id="cb14-16"><a href="#cb14-16"></a><span class="co"># Load necessary packages</span></span>
-<span id="cb14-17"><a href="#cb14-17"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb14-18"><a href="#cb14-18"></a><span class="fu">library</span>(tidyquant)</span>
-<span id="cb14-19"><a href="#cb14-19"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb14-20"><a href="#cb14-20"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb14-21"><a href="#cb14-21"></a><span class="fu">library</span>(TTR)</span>
-<span id="cb14-22"><a href="#cb14-22"></a><span class="fu">library</span>(zoo)</span>
-<span id="cb14-23"><a href="#cb14-23"></a><span class="in">```</span></span>
-<span id="cb14-24"><a href="#cb14-24"></a></span>
-<span id="cb14-27"><a href="#cb14-27"></a><span class="in">```{r}</span></span>
-<span id="cb14-28"><a href="#cb14-28"></a><span class="co"># import the data</span></span>
-<span id="cb14-29"><a href="#cb14-29"></a>indices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"^GSPC"</span>, <span class="st">"^FTSE"</span>, <span class="st">"^N225"</span>, <span class="st">"^GDAXI"</span>, <span class="st">"^FCHI"</span>, <span class="st">"^HSI"</span>)</span>
-<span id="cb14-30"><a href="#cb14-30"></a></span>
-<span id="cb14-31"><a href="#cb14-31"></a>market_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(indices, <span class="at">get =</span> <span class="st">"stock.prices"</span>,</span>
-<span id="cb14-32"><a href="#cb14-32"></a>                      <span class="at">from =</span> <span class="st">"2000-01-01"</span>,</span>
-<span id="cb14-33"><a href="#cb14-33"></a>                      <span class="at">to =</span> <span class="fu">Sys.Date</span>())</span>
-<span id="cb14-34"><a href="#cb14-34"></a></span>
-<span id="cb14-35"><a href="#cb14-35"></a><span class="in">```</span></span>
-<span id="cb14-36"><a href="#cb14-36"></a></span>
-<span id="cb14-39"><a href="#cb14-39"></a><span class="in">```{r}</span></span>
-<span id="cb14-40"><a href="#cb14-40"></a><span class="co"># Glimpse of data structure</span></span>
-<span id="cb14-41"><a href="#cb14-41"></a><span class="fu">glimpse</span>(market_data)</span>
-<span id="cb14-42"><a href="#cb14-42"></a></span>
-<span id="cb14-43"><a href="#cb14-43"></a><span class="co"># Check missing values</span></span>
-<span id="cb14-44"><a href="#cb14-44"></a><span class="fu">sapply</span>(market_data, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
-<span id="cb14-45"><a href="#cb14-45"></a><span class="in">```</span></span>
-<span id="cb14-46"><a href="#cb14-46"></a>This code provides a quick overview of the structure of the market_data dataset, confirming that we have data for multiple major indices with key variables such as open, close, high, low, volume, and adjusted price for each trading day from 2000 to the present.I examined the dataset for missing values and found that a small percentage (330 days) of entries are missing across several columns, including open, high, low, close, volume, and adjusted prices. The presence of missing values is typical for financial datasets due to market holidays or data reporting inconsistencies. </span>
-<span id="cb14-47"><a href="#cb14-47"></a></span>
-<span id="cb14-50"><a href="#cb14-50"></a><span class="in">```{r}</span></span>
-<span id="cb14-51"><a href="#cb14-51"></a><span class="fu">ggplot</span>(market_data, <span class="fu">aes</span>(<span class="at">x =</span> adjusted, <span class="at">fill =</span> symbol)) <span class="sc">+</span></span>
-<span id="cb14-52"><a href="#cb14-52"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb14-53"><a href="#cb14-53"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb14-54"><a href="#cb14-54"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Adjusted Closing Prices"</span>, <span class="at">x =</span> <span class="st">"Adjusted Close (log scale)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb14-55"><a href="#cb14-55"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> symbol, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb14-56"><a href="#cb14-56"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb14-57"><a href="#cb14-57"></a><span class="in">```</span></span>
-<span id="cb14-58"><a href="#cb14-58"></a>The histogram displays the distribution of adjusted closing prices for each major stock index, with prices shown on a logarithmic scale for better comparison in 25yrs. The log scale reveals the wide variation in price levels between different indices, such as the GSPC and Nikkei 225. </span>
-<span id="cb14-59"><a href="#cb14-59"></a></span>
-<span id="cb14-60"><a href="#cb14-60"></a></span>
-<span id="cb14-63"><a href="#cb14-63"></a><span class="in">```{r}</span></span>
-<span id="cb14-64"><a href="#cb14-64"></a><span class="fu">ggplot</span>(market_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> adjusted, <span class="at">color =</span> symbol)) <span class="sc">+</span></span>
-<span id="cb14-65"><a href="#cb14-65"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb14-66"><a href="#cb14-66"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Time Series of Adjusted Prices (2000–Present)"</span>, <span class="at">x =</span> <span class="st">"Date"</span>, <span class="at">y =</span> <span class="st">"Adjusted Price"</span>) <span class="sc">+</span></span>
-<span id="cb14-67"><a href="#cb14-67"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb14-68"><a href="#cb14-68"></a><span class="in">```</span></span>
-<span id="cb14-69"><a href="#cb14-69"></a></span>
-<span id="cb14-70"><a href="#cb14-70"></a>The time series plot illustrates the trajectory of adjusted closing prices for all these indices from 2000 to 2025. Notably, the plot highlights the 2008 global financial crisis and the COVID-19 market shock, which appear as periods of sharp price declines or increased volatility across multiple indices.</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Effective teamwork"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">author:</span><span class="co"> "Phoebe Pan"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>In this article "What Google Learned From Its Quest to Build the Perfect Team", Charles Duhigg explores how Google launched an internal research initiative called Project Aristotle to investigate what makes a team successful. The company studied more than 180 teams to determine why some performed well while others did not, even when team members had similar talent and access to resources.</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>Google’s research revealed that psychological safety was the most important ingredient for team success. When members felt safe to speak up, take risks, and admit mistakes without fear, teams performed better. In addition, four other factors played key roles: dependability, structure and clarity, meaning, and impact.</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>Interestingly, the team composition mattered less than the collaboration. Teams that communicated openly and respected each other outperformed even the most technically skilled groups. In short, trust and connection beat talent alone.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -1064,5 +936,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </footer>
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
