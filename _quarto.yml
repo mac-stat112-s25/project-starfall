@@ -11,8 +11,8 @@ project:
 
 
 book:
-  title: "project title"
-  author: ["student 1 first and last name", "student 2 first and last name", "student 3 first and last name"]
+  title: "Stock Market Volatility: Patterns and Predictions"
+  author: ["Zhijun He", "Phoebe Pan"]
   date: today  # use today to update date published based on last time project was edited
   date-format: full
   # favicon: images/logo.png
@@ -29,21 +29,21 @@ book:
 
 
   sidebar:
-    title: "sidebar title"
+    title: "Starfall"
     collapse-level: 2
     style: "docked"
     pinned: true
     search: true
 
   chapters:
-    - index.qmd
+  - src/Group Work-Stock Market-IMF.qmd
 
   appendices:
   - src/appx/proposal.qmd
   - src/appx/case-study.qmd
   - src/appx/effective teamwork.qmd
   - src/EDA.qmd
-  - src/Group Work-Stock Market-IMF.qmd
+
 
 
 format:
