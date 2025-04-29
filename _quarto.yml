@@ -37,13 +37,14 @@ book:
 
   chapters:
   - index.qmd
-  - src/Group Work-Stock Market-IMF.qmd
 
   appendices:
   - src/appx/proposal.qmd
   - src/appx/case-study.qmd
-  - src/appx/effective teamwork.qmd
-  - src/EDA.qmd
+  - src/appx/effective teamwork - Zhijun.qmd
+  - src/appx/effective teamwork - Phoebe.qmd
+  - src/EDA - Phoebe Pan.qmd
+  - src/EDA - Zhijun He.qmd
 
 
 
