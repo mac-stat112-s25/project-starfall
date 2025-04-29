@@ -11,6 +11,10 @@ format: html
 -   Zhijun He
 -   Phoebe Pan
 
+## Slides
+https://docs.google.com/presentation/d/1t5V1nfCJfQieeG6bOXYqi5q7IYg35hS1mcn7k3QniGY/edit#slide=id.p
+
+
 ## Introduction
 
 In today's interconnected global economy, understanding stock market volatility is not merely an academic exercise but a practical necessity for investors, financial institutions, and policymakers.
