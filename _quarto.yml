@@ -39,6 +39,10 @@ book:
   - part: "Report"
     chapters:
       - index.qmd
+  - part: "EDA"
+    chapters:
+      - src/EDA - Phoebe Pan.qmd
+      - src/EDA - Zhijun He.qmd
   - part: "Teamwork"
     chapters:
       - src/appx/effective teamwork - Zhijun.qmd
@@ -47,8 +51,6 @@ book:
     chapters:
       - src/appx/proposal.qmd
       - src/appx/case-study.qmd
-      - src/EDA - Phoebe Pan.qmd
-      - src/EDA - Zhijun He.qmd
 
 
 format:
