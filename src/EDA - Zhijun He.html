@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Zhijun He">
-<title>7&nbsp; Exploratory Data Analysis: Zhijun He‘s EDA2 – Stock Market Volatility: Patterns and Predictions</title>
+<title>3&nbsp; Exploratory Data Analysis: Zhijun He‘s EDA2 – Stock Market Volatility: Patterns and Predictions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../src/appx/effective teamwork - Zhijun.html" rel="next">
 <link href="../src/EDA - Phoebe Pan.html" rel="prev">
 <script src="../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
@@ -124,7 +125,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../src/EDA - Zhijun He.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/EDA - Phoebe Pan.html">EDA</a></li><li class="breadcrumb-item"><a href="../src/EDA - Zhijun He.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +166,7 @@ cookieconsent.run({
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Report: Stock Market Volatility: Patterns and Predictions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stock Market Volatility: Patterns and Predictions</span></span></a>
   </div>
 </li>
       </ul>
@@ -173,7 +174,7 @@ cookieconsent.run({
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Teamwork</span></a>
+ <span class="menu-text">EDA</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -181,14 +182,14 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../src/appx/effective teamwork - Zhijun.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Building Skills for Effective Teamwork-Team Starfall Reading</span></span></a>
+  <a href="../src/EDA - Phoebe Pan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../src/appx/effective teamwork - Phoebe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Effective teamwork</span></span></a>
+  <a href="../src/EDA - Zhijun He.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></span></a>
   </div>
 </li>
       </ul>
@@ -196,7 +197,7 @@ cookieconsent.run({
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Teamwork</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -204,26 +205,37 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../src/appx/effective teamwork - Zhijun.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Building Skills for Effective Teamwork-Team Starfall Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/appx/effective teamwork - Phoebe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Effective teamwork</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../src/appx/proposal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proposal</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Proposal</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../src/appx/case-study.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Case Study:What Have We Learned from the German Story?</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/EDA - Phoebe Pan.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/EDA - Zhijun He.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study:What Have We Learned from the German Story?</span></span></a>
   </div>
 </li>
       </ul>
@@ -236,21 +248,21 @@ cookieconsent.run({
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a></li>
-  <li><a href="#data-import-and-preparation" id="toc-data-import-and-preparation" class="nav-link" data-scroll-target="#data-import-and-preparation"><span class="header-section-number">7.2</span> Data Import and Preparation</a></li>
-  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration"><span class="header-section-number">7.3</span> Data Exploration</a></li>
-  <li><a href="#volatility-analysis" id="toc-volatility-analysis" class="nav-link" data-scroll-target="#volatility-analysis"><span class="header-section-number">7.4</span> Volatility Analysis</a></li>
-  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><span class="header-section-number">7.5</span> Visualization</a></li>
-  <li><a href="#market-correlation-analysis" id="toc-market-correlation-analysis" class="nav-link" data-scroll-target="#market-correlation-analysis"><span class="header-section-number">7.6</span> Market Correlation Analysis</a></li>
-  <li><a href="#seasonal-patterns" id="toc-seasonal-patterns" class="nav-link" data-scroll-target="#seasonal-patterns"><span class="header-section-number">7.7</span> Seasonal Patterns</a></li>
-  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics"><span class="header-section-number">7.8</span> Summary Statistics</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">7.9</span> Conclusion</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+  <li><a href="#data-import-and-preparation" id="toc-data-import-and-preparation" class="nav-link" data-scroll-target="#data-import-and-preparation"><span class="header-section-number">3.2</span> Data Import and Preparation</a></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration"><span class="header-section-number">3.3</span> Data Exploration</a></li>
+  <li><a href="#volatility-analysis" id="toc-volatility-analysis" class="nav-link" data-scroll-target="#volatility-analysis"><span class="header-section-number">3.4</span> Volatility Analysis</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><span class="header-section-number">3.5</span> Visualization</a></li>
+  <li><a href="#market-correlation-analysis" id="toc-market-correlation-analysis" class="nav-link" data-scroll-target="#market-correlation-analysis"><span class="header-section-number">3.6</span> Market Correlation Analysis</a></li>
+  <li><a href="#seasonal-patterns" id="toc-seasonal-patterns" class="nav-link" data-scroll-target="#seasonal-patterns"><span class="header-section-number">3.7</span> Seasonal Patterns</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics"><span class="header-section-number">3.8</span> Summary Statistics</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3.9</span> Conclusion</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../src/EDA - Zhijun He.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></a></li></ol></nav><div class="quarto-title">
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/EDA - Phoebe Pan.html">EDA</a></li><li class="breadcrumb-item"><a href="../src/EDA - Zhijun He.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span>
+<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Zhijun He‘s EDA2</span>
 </h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -271,11 +283,11 @@ cookieconsent.run({
   
 
 
-</header><section id="introduction" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">7.1</span> Introduction</h2>
+</header><section id="introduction" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">3.1</span> Introduction</h2>
 <p>In this document, I present my exploratory data analysis (EDA) for our group project, focusing on stock market volatility patterns and predictors across major global markets from 2000 to 2025.</p>
-</section><section id="data-import-and-preparation" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="data-import-and-preparation">
-<span class="header-section-number">7.2</span> Data Import and Preparation</h2>
+</section><section id="data-import-and-preparation" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="data-import-and-preparation">
+<span class="header-section-number">3.2</span> Data Import and Preparation</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># I'll first load all necessary packages for my analysis</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)  <span class="co"># For data manipulation and visualization</span></span>
@@ -305,8 +317,8 @@ cookieconsent.run({
 <span id="cb2-18"><a href="#cb2-18"></a>  <span class="co"># Adding descriptive names for better readability in my visualizations</span></span>
 <span id="cb2-19"><a href="#cb2-19"></a>  <span class="fu">mutate</span>(<span class="at">index_name =</span> indices[symbol])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="data-exploration" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="data-exploration">
-<span class="header-section-number">7.3</span> Data Exploration</h2>
+</section><section id="data-exploration" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="data-exploration">
+<span class="header-section-number">3.3</span> Data Exploration</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Let me examine the structure and quality of my dataset</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">cat</span>(<span class="st">"My Dataset Overview:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -364,8 +376,8 @@ cookieconsent.run({
 </div>
 </div>
 <p>My dataset contains daily trading information for six major global indices from January 2000 onwards. I’ve collected date, opening, high, low, and closing prices, trading volume, and adjusted closing price for each index. This comprehensive dataset will allow me to analyze market behavior across different regions and economic conditions.</p>
-</section><section id="volatility-analysis" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="volatility-analysis">
-<span class="header-section-number">7.4</span> Volatility Analysis</h2>
+</section><section id="volatility-analysis" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="volatility-analysis">
+<span class="header-section-number">3.4</span> Volatility Analysis</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># I'll calculate daily returns and volatility metrics for my analysis</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>market_analysis <span class="ot">&lt;-</span> market_data <span class="sc">%&gt;%</span></span>
@@ -385,8 +397,8 @@ cookieconsent.run({
 <span id="cb15-16"><a href="#cb15-16"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb15-17"><a href="#cb15-17"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="visualization" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="visualization">
-<span class="header-section-number">7.5</span> Visualization</h2>
+</section><section id="visualization" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="visualization">
+<span class="header-section-number">3.5</span> Visualization</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># I'll visualize the long-term price trends for all indices</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="fu">ggplot</span>(market_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> adjusted, <span class="at">color =</span> index_name)) <span class="sc">+</span></span>
@@ -477,8 +489,8 @@ cookieconsent.run({
 </div>
 </div>
 </div>
-</section><section id="market-correlation-analysis" class="level2" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="market-correlation-analysis">
-<span class="header-section-number">7.6</span> Market Correlation Analysis</h2>
+</section><section id="market-correlation-analysis" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="market-correlation-analysis">
+<span class="header-section-number">3.6</span> Market Correlation Analysis</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># I want to understand how these markets move together</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="co"># First I'll prepare daily returns by index</span></span>
@@ -538,8 +550,8 @@ cookieconsent.run({
 </div>
 </div>
 </div>
-</section><section id="seasonal-patterns" class="level2" data-number="7.7"><h2 data-number="7.7" class="anchored" data-anchor-id="seasonal-patterns">
-<span class="header-section-number">7.7</span> Seasonal Patterns</h2>
+</section><section id="seasonal-patterns" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="seasonal-patterns">
+<span class="header-section-number">3.7</span> Seasonal Patterns</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># I'm interested in identifying seasonal patterns in returns</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>seasonal_data <span class="ot">&lt;-</span> market_analysis <span class="sc">%&gt;%</span></span>
@@ -586,8 +598,8 @@ cookieconsent.run({
 </div>
 </div>
 </div>
-</section><section id="summary-statistics" class="level2" data-number="7.8"><h2 data-number="7.8" class="anchored" data-anchor-id="summary-statistics">
-<span class="header-section-number">7.8</span> Summary Statistics</h2>
+</section><section id="summary-statistics" class="level2" data-number="3.8"><h2 data-number="3.8" class="anchored" data-anchor-id="summary-statistics">
+<span class="header-section-number">3.8</span> Summary Statistics</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># I'll generate comprehensive summary statistics for my report</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>market_summary <span class="ot">&lt;-</span> market_analysis <span class="sc">%&gt;%</span></span>
@@ -697,8 +709,8 @@ cookieconsent.run({
 </table>
 </div>
 </div>
-</section><section id="conclusion" class="level2" data-number="7.9"><h2 data-number="7.9" class="anchored" data-anchor-id="conclusion">
-<span class="header-section-number">7.9</span> Conclusion</h2>
+</section><section id="conclusion" class="level2" data-number="3.9"><h2 data-number="3.9" class="anchored" data-anchor-id="conclusion">
+<span class="header-section-number">3.9</span> Conclusion</h2>
 <p>Through my exploratory analysis, I’ve uncovered distinct patterns in volatility, returns, and trading activity across major global stock indices. My optimized visualizations highlight market correlations, seasonal patterns, and the varying impacts of major financial events across different markets. These insights from my analysis provide a foundation for our group’s further investigation of volatility predictors and potential trading strategies. As I progress with this project, I plan to explore more advanced volatility modeling techniques and examine how macroeconomic factors influence these patterns across different regions.</p>
 
 
@@ -1325,10 +1337,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
       <a href="../src/EDA - Phoebe Pan.html" class="pagination-link" aria-label="Exploratory Data Analysis: Phoebe Pan">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis: Phoebe Pan</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../src/appx/effective teamwork - Zhijun.html" class="pagination-link" aria-label="Building Skills for Effective Teamwork-Team Starfall Reading">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Building Skills for Effective Teamwork-Team Starfall Reading</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">---</span></span>
