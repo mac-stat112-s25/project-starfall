@@ -1,6 +1,10 @@
 ---
 title: "Stock Market Volatility: Patterns and Predictions"
 format: html
+execute:
+  echo: false
+  warning: false
+  error: false
 ---
 
 ## Team Members
