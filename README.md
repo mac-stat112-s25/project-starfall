@@ -2,6 +2,12 @@
 ## STAT 112 - Spring 2025
 ### Macalester College
 
+<p align="center">
+  <img src="https://www.liberalarts.org/wp-content/uploads/2015/12/logo-macalester.png" alt="Macalester College Logo" width="300">
+  <br>
+  <em>Figure: Global Market Volatility Patterns (2000-2025)</em>
+</p>
+
 ## 👥 Team Members
 
 | Name | Role | Focus Area |
@@ -28,6 +34,11 @@ Our analysis is guided by these central questions:
 4. **Early Warning Systems**: Can specific volatility patterns or sector-specific movements serve as early warning signals for broader market disruptions?
 
 5. **Volatility Regimes**: How have volatility regimes evolved over the 25-year study period, and what factors drive transitions between these regimes?
+
+## 📊 Interactive Dashboard
+
+Explore our findings through our interactive Quarto-powered web dashboard:
+[**Market Volatility Dashboard**](https://mac-stat112-s25.github.io/project-starfall/)
 
 ## 📚 Data Sources
 
@@ -240,6 +251,7 @@ For questions or collaboration opportunities:
 - **Phoebe Pan**: ppan@macalester.edu
 
 ### Additional Resources
+- **Interactive Dashboard**: [Market Volatility Dashboard](https://mac-stat112-s25.github.io/project-starfall/)
 - **Presentation Video**: See `Zhijun:Phoebe- Presentation-Starfall.mp4` in the repository
 - **Presentation Slides**: Available as `DS112 Final Pre_ Stock Market Volatility.pptx`
 - **GitHub Classroom**: This project was completed as part of Macalester College's STAT 112 course
@@ -247,7 +259,6 @@ For questions or collaboration opportunities:
 ---
 
 <p align="center">
-  <img src="https://via.placeholder.com/100x100?text=Team+Starfall" alt="Team Starfall Logo" width="100](https://mma.prnewswire.com/media/2629548/Starfall_Education_Foundation__Starfall__logo.jpg?w=200)">
   <br>
   <em>Team Starfall • Macalester College • STAT 112 Spring 2025</em>
 </p>
