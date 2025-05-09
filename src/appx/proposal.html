@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; ```markdown – Stock Market Volatility: Patterns and Predictions</title>
+<title>Proposal – Stock Market Volatility: Patterns and Predictions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -104,7 +138,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/proposal.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">```markdown</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/proposal.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Proposal</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -119,9 +153,7 @@ cookieconsent.run({
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">
-      Starfall
-      </a> 
+      <a href="../../">Starfall</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -203,7 +235,7 @@ cookieconsent.run({
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/appx/proposal.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">```markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Proposal</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -224,21 +256,28 @@ cookieconsent.run({
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#team-members" id="toc-team-members" class="nav-link active" data-scroll-target="#team-members"><span class="header-section-number">6.1</span> Team Members</a></li>
-  <li><a href="#project-description" id="toc-project-description" class="nav-link" data-scroll-target="#project-description"><span class="header-section-number">6.2</span> Project Description</a></li>
-  <li><a href="#motivation-and-inspiration" id="toc-motivation-and-inspiration" class="nav-link" data-scroll-target="#motivation-and-inspiration"><span class="header-section-number">6.3</span> Motivation and Inspiration</a></li>
-  <li><a href="#implementation-plan" id="toc-implementation-plan" class="nav-link" data-scroll-target="#implementation-plan"><span class="header-section-number">6.4</span> Implementation Plan</a></li>
-  <li><a href="#expected-outcomes" id="toc-expected-outcomes" class="nav-link" data-scroll-target="#expected-outcomes"><span class="header-section-number">6.5</span> Expected Outcomes</a></li>
-  <li><a href="#expected-outcomes-1" id="toc-expected-outcomes-1" class="nav-link" data-scroll-target="#expected-outcomes-1"><span class="header-section-number">6.6</span> Expected Outcomes</a></li>
+  <li><a href="#team-members" id="toc-team-members" class="nav-link active" data-scroll-target="#team-members">Team Members</a></li>
+  <li><a href="#project-description" id="toc-project-description" class="nav-link" data-scroll-target="#project-description">Project Description</a></li>
+  <li><a href="#motivation-and-inspiration" id="toc-motivation-and-inspiration" class="nav-link" data-scroll-target="#motivation-and-inspiration">Motivation and Inspiration</a></li>
+  <li><a href="#implementation-plan" id="toc-implementation-plan" class="nav-link" data-scroll-target="#implementation-plan">Implementation Plan</a></li>
+  <li><a href="#methodological-approach" id="toc-methodological-approach" class="nav-link" data-scroll-target="#methodological-approach">Methodological Approach</a>
+  <ul class="collapse">
+  <li><a href="#data-acquisition-and-preparation" id="toc-data-acquisition-and-preparation" class="nav-link" data-scroll-target="#data-acquisition-and-preparation">Data Acquisition and Preparation</a></li>
+  <li><a href="#historical-context-integration" id="toc-historical-context-integration" class="nav-link" data-scroll-target="#historical-context-integration">Historical Context Integration</a></li>
+  <li><a href="#volatility-pattern-analysis" id="toc-volatility-pattern-analysis" class="nav-link" data-scroll-target="#volatility-pattern-analysis">Volatility Pattern Analysis</a></li>
+  <li><a href="#predictive-model-development" id="toc-predictive-model-development" class="nav-link" data-scroll-target="#predictive-model-development">Predictive Model Development</a></li>
+  <li><a href="#interactive-visualization" id="toc-interactive-visualization" class="nav-link" data-scroll-target="#interactive-visualization">Interactive Visualization</a></li>
+  </ul></li>
+  <li><a href="#expected-outcomes" id="toc-expected-outcomes" class="nav-link" data-scroll-target="#expected-outcomes">Expected Outcomes</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/proposal.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">```markdown</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/proposal.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Proposal</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">```markdown</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">Proposal</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -255,265 +294,187 @@ cookieconsent.run({
 </header>
 
 
-<p>I see the issue - even with <code>echo: false</code>, the code is still showing in the rendered document. Let’s try a completely different approach:</p>
-<p>title: “Proposal” format: html: echo: false warning: false message: false number-sections: false —</p>
-<section id="team-members" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="team-members"><span class="header-section-number">6.1</span> Team Members</h2>
+<section id="team-members" class="level2">
+<h2 class="anchored" data-anchor-id="team-members">Team Members</h2>
 <ul>
 <li>Zhijun He</li>
 <li>Phoebe Pan</li>
 </ul>
 </section>
-<section id="project-description" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="project-description"><span class="header-section-number">6.2</span> Project Description</h2>
-<p>Our project will analyze historical stock market fluctuations from 2000-2025, examining how major economic, political, and global events impact market volatility across different sectors. We’ll collect and analyze comprehensive market data from sources like <a href="https://finance.yahoo.com/">Yahoo Finance</a>, <a href="https://fred.stlouisfed.org/">FRED Economic Data</a>, and the <a href="https://www.imf.org/en/Data">International Monetary Fund (IMF)</a> to identify patterns that precede significant market movements and evaluate the effectiveness of various prediction models in anticipating market corrections and rallies.</p>
+<section id="project-description" class="level2">
+<h2 class="anchored" data-anchor-id="project-description">Project Description</h2>
+<p>Our project will analyze historical stock market fluctuations from 2000-2025, examining how major economic, political, and global events impact market volatility across different sectors and regions. We’ll collect and analyze comprehensive market data from authoritative sources including <a href="https://finance.yahoo.com/">Yahoo Finance</a>, <a href="https://fred.stlouisfed.org/">FRED Economic Data</a>, and the <a href="https://www.imf.org/en/Data">International Monetary Fund (IMF)</a> to identify patterns that precede significant market movements and evaluate the effectiveness of various prediction models in anticipating market corrections and rallies.</p>
+<p>The analysis will focus on six major global indices (S&amp;P 500, FTSE 100, DAX, CAC 40, Nikkei 225, and Hang Seng) to provide balanced geographic representation spanning North America, Europe, and Asia. Additionally, we’ll examine sector-specific ETFs to understand how different economic sectors respond to volatility events. This cross-market approach will enable us to detect both universal volatility patterns and region-specific responses to global events.</p>
 </section>
-<section id="motivation-and-inspiration" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="motivation-and-inspiration"><span class="header-section-number">6.3</span> Motivation and Inspiration</h2>
-<p>Our team selected this project due to its practical relevance in the financial world. Understanding market volatility has direct applications for investment strategies and risk management, which can benefit both individual investors and financial institutions. The abundance of historical market data spanning multiple market cycles, including several major crashes and recoveries, provides us with rich material for analysis and pattern recognition.</p>
-<p>We are particularly drawn to the interdisciplinary nature of this project, which allows us to combine financial knowledge, statistical analysis, and machine learning techniques. Recent market fluctuations due to global events have only heightened our interest, as they provide timely case studies for our analysis. Both Zhijun and Phoebe share a strong interest in financial markets and quantitative analysis, making this project a natural fit for our skills and academic goals.</p>
+<section id="motivation-and-inspiration" class="level2">
+<h2 class="anchored" data-anchor-id="motivation-and-inspiration">Motivation and Inspiration</h2>
+<p>Our team selected this project due to its significant practical relevance in the financial world and its rich analytical potential. Understanding market volatility has direct applications for:</p>
+<ol type="1">
+<li><strong>Investment strategies</strong> - Helping investors anticipate market conditions and adjust portfolios accordingly</li>
+<li><strong>Risk management</strong> - Providing frameworks for financial institutions to hedge against potential market turbulence</li>
+<li><strong>Policy insights</strong> - Offering data-driven perspectives on how economic policies affect market stability</li>
+</ol>
+<p>The abundance of historical market data spanning multiple complete market cycles—including the 2000 Dot-com bubble, 2008 financial crisis, the 2020 pandemic shock, and subsequent recoveries—provides exceptional material for pattern identification and model validation. This historical depth allows us to test our hypotheses across diverse market environments.</p>
+<p>We are particularly drawn to the interdisciplinary nature of this project, which allows us to combine financial knowledge, statistical analysis, and machine learning techniques. Recent market fluctuations due to global events have only heightened our interest, as they provide timely case studies for our analysis. Both Zhijun and Phoebe share a strong interest in financial markets and quantitative analysis, making this project an ideal match for our academic backgrounds and professional aspirations.</p>
 </section>
-<section id="implementation-plan" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="implementation-plan"><span class="header-section-number">6.4</span> Implementation Plan</h2>
+<section id="implementation-plan" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-plan">Implementation Plan</h2>
 <p>This accelerated 2-week plan begins on April 9, 2025 and concludes on April 23, 2025.</p>
-<table class="table table-striped table-hover table-condensed caption-top" data-quarto-postprocess="true">
+<table class="caption-top table">
 <caption>Project Timeline and Task Allocation. Source: Created by Zhijun He and Phoebe Pan, April 2025</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 17%">
+<col style="width: 27%">
+</colgroup>
 <thead>
-<tr class="header" style="background-color: #F0F0F0;">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold;">Task</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Deliverable</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Team Member</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Timeline</th>
+<tr class="header">
+<th style="text-align: left;">Task</th>
+<th style="text-align: left;">Deliverable</th>
+<th style="text-align: left;">Team Member</th>
+<th style="text-align: left;">Timeline</th>
+<th style="text-align: left;">Key Components</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center; font-weight: bold;">Data Collection</td>
-<td style="text-align: center;">Curated dataset of market indices, sector ETFs, and volatility metrics</td>
-<td style="text-align: center;">Zhijun He</td>
-<td style="text-align: center;">April 9-11</td>
+<td style="text-align: left;">Data Collection</td>
+<td style="text-align: left;">Curated dataset of market indices, sector ETFs, and volatility metrics</td>
+<td style="text-align: left;">Zhijun He</td>
+<td style="text-align: left;">April 9-11</td>
+<td style="text-align: left;">Daily price data from 2000-2025; calculated volatility metrics; integrated macroeconomic indicators</td>
 </tr>
 <tr class="even">
-<td style="text-align: center; font-weight: bold;">Historical Event Mapping</td>
-<td style="text-align: center;">Timeline of major events correlated with market movements</td>
-<td style="text-align: center;">Phoebe Pan</td>
-<td style="text-align: center;">April 9-11</td>
+<td style="text-align: left;">Historical Event Mapping</td>
+<td style="text-align: left;">Timeline of major events correlated with market movements</td>
+<td style="text-align: left;">Phoebe Pan</td>
+<td style="text-align: left;">April 9-11</td>
+<td style="text-align: left;">Categorized events (financial, geopolitical, health); sentiment scoring; event-impact assessment</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center; font-weight: bold;">Exploratory Data Analysis</td>
-<td style="text-align: center;">Initial visualizations and statistical summaries</td>
-<td style="text-align: center;">Zhijun He</td>
-<td style="text-align: center;">April 12-14</td>
+<td style="text-align: left;">Exploratory Data Analysis</td>
+<td style="text-align: left;">Initial visualizations and statistical summaries</td>
+<td style="text-align: left;">Zhijun He</td>
+<td style="text-align: left;">April 12-14</td>
+<td style="text-align: left;">Distribution analysis; correlation matrices; regime identification; cross-market comparison</td>
 </tr>
 <tr class="even">
-<td style="text-align: center; font-weight: bold;">Pattern Identification</td>
-<td style="text-align: center;">Report on identified volatility patterns</td>
-<td style="text-align: center;">Both members</td>
-<td style="text-align: center;">April 14-16</td>
+<td style="text-align: left;">Pattern Identification</td>
+<td style="text-align: left;">Report on identified volatility patterns</td>
+<td style="text-align: left;">Both members</td>
+<td style="text-align: left;">April 14-16</td>
+<td style="text-align: left;">Volatility clustering analysis; cross-asset correlation during stress periods; market structure changes</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center; font-weight: bold;">Model Development</td>
-<td style="text-align: center;">Implementation of prediction models</td>
-<td style="text-align: center;">Both members</td>
-<td style="text-align: center;">April 15-18</td>
+<td style="text-align: left;">Model Development</td>
+<td style="text-align: left;">Implementation of prediction models</td>
+<td style="text-align: left;">Both members</td>
+<td style="text-align: left;">April 15-18</td>
+<td style="text-align: left;">GARCH models; machine learning approaches; hybrid forecasting methods; sentiment integration</td>
 </tr>
 <tr class="even">
-<td style="text-align: center; font-weight: bold;">Model Evaluation</td>
-<td style="text-align: center;">Performance metrics and comparative analysis</td>
-<td style="text-align: center;">Phoebe Pan</td>
-<td style="text-align: center;">April 18-20</td>
+<td style="text-align: left;">Model Evaluation</td>
+<td style="text-align: left;">Performance metrics and comparative analysis</td>
+<td style="text-align: left;">Phoebe Pan</td>
+<td style="text-align: left;">April 18-20</td>
+<td style="text-align: left;">Out-of-sample testing; crisis period performance; prediction confidence metrics; model robustness</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center; font-weight: bold;">Visualization Dashboard</td>
-<td style="text-align: center;">Interactive web interface for exploring findings</td>
-<td style="text-align: center;">Zhijun He</td>
-<td style="text-align: center;">April 18-21</td>
+<td style="text-align: left;">Visualization Dashboard</td>
+<td style="text-align: left;">Interactive web interface for exploring findings</td>
+<td style="text-align: left;">Zhijun He</td>
+<td style="text-align: left;">April 18-21</td>
+<td style="text-align: left;">R Shiny implementation; dynamic filtering; comparison views; model forecast visualization</td>
 </tr>
 <tr class="even">
-<td style="text-align: center; font-weight: bold;">Documentation</td>
-<td style="text-align: center;">Project report, code documentation, and user guide</td>
-<td style="text-align: center;">Both members</td>
-<td style="text-align: center;">April 19-22</td>
+<td style="text-align: left;">Documentation</td>
+<td style="text-align: left;">Project report, code documentation, and user guide</td>
+<td style="text-align: left;">Both members</td>
+<td style="text-align: left;">April 19-22</td>
+<td style="text-align: left;">Methodology explanation; result interpretation; code annotations; user instructions</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center; font-weight: bold;">Final Presentation</td>
-<td style="text-align: center;">Slides and demonstration</td>
-<td style="text-align: center;">Both members</td>
-<td style="text-align: center;">April 23</td>
+<td style="text-align: left;">Final Presentation</td>
+<td style="text-align: left;">Slides and demonstration</td>
+<td style="text-align: left;">Both members</td>
+<td style="text-align: left;">April 23</td>
+<td style="text-align: left;">Key findings summary; live dashboard demonstration; future research directions</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="expected-outcomes" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="expected-outcomes"><span class="header-section-number">6.5</span> Expected Outcomes</h2>
-<p>Upon completion of this two-week project, we expect to deliver:</p>
-<ul>
-<li>A comprehensive analysis of market volatility patterns from 2000-2025</li>
-<li>Identification of leading indicators for market shifts<br>
-</li>
-<li>Evaluation of prediction model performance across different market conditions</li>
-<li>Interactive visualization dashboard for exploring market volatility patterns</li>
-<li>Recommendations for investors based on historical pattern analysis</li>
-</ul>
-<pre><code>
-
-
-
-:::{#quarto-navigation-envelope .hidden}
-[Starfall]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar-title"}
-[Stock Market Volatility: Patterns and Predictions]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-navbar-title"}
-[&lt;span class='chapter-number'&gt;7&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Case Study&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-next"}
-[&lt;span class='chapter-number'&gt;5&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Phoebe P&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-prev"}
-[&lt;span class='chapter-number'&gt;1&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Report&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:/index.html&lt;span-class='chapter-number'&gt;1&lt;/span&gt;--&lt;span-class='chapter-title'&gt;Report&lt;/span&gt;"}
-[EDA]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:quarto-sidebar-section-1"}
-[&lt;span class='chapter-number'&gt;2&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Phoebe P&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:/src/EDA - Phoebe Pan.html&lt;span-class='chapter-number'&gt;2&lt;/span&gt;--&lt;span-class='chapter-title'&gt;Phoebe-P&lt;/span&gt;"}
-[&lt;span class='chapter-number'&gt;3&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Zhijun H&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:/src/EDA - Zhijun He.html&lt;span-class='chapter-number'&gt;3&lt;/span&gt;--&lt;span-class='chapter-title'&gt;Zhijun-H&lt;/span&gt;"}
-[Teamwork]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:quarto-sidebar-section-2"}
-[&lt;span class='chapter-number'&gt;4&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Zhijun H&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:/src/appx/effective teamwork - Zhijun.html&lt;span-class='chapter-number'&gt;4&lt;/span&gt;--&lt;span-class='chapter-title'&gt;Zhijun-H&lt;/span&gt;"}
-[&lt;span class='chapter-number'&gt;5&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Phoebe P&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:/src/appx/effective teamwork - Phoebe.html&lt;span-class='chapter-number'&gt;5&lt;/span&gt;--&lt;span-class='chapter-title'&gt;Phoebe-P&lt;/span&gt;"}
-[Appendices]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:quarto-sidebar-section-3"}
-[&lt;span class='chapter-number'&gt;6&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;```markdown&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:/src/appx/proposal.html&lt;span-class='chapter-number'&gt;6&lt;/span&gt;--&lt;span-class='chapter-title'&gt;```markdown&lt;/span&gt;"}
-[&lt;span class='chapter-number'&gt;7&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Case Study&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-int-sidebar:/src/appx/case-study.html&lt;span-class='chapter-number'&gt;7&lt;/span&gt;--&lt;span-class='chapter-title'&gt;Case-Study&lt;/span&gt;"}
-[Appendices]{.hidden .quarto-markdown-envelope-contents render-id="quarto-breadcrumbs-Appendices"}
-[&lt;span class='chapter-number'&gt;6&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;```markdown&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="quarto-breadcrumbs-&lt;span-class='chapter-number'&gt;6&lt;/span&gt;--&lt;span-class='chapter-title'&gt;```markdown&lt;/span&gt;"}
-
-:::{.hidden .quarto-markdown-envelope-contents render-id="footer-center"}
- 
-:::
-
-:::
-
-
-
-:::{#quarto-meta-markdown .hidden}
-[[6]{.chapter-number}&nbsp; [```markdown]{.chapter-title} – Stock Market Volatility: Patterns and Predictions]{.hidden .quarto-markdown-envelope-contents render-id="quarto-metatitle"}
-[[6]{.chapter-number}&nbsp; [```markdown]{.chapter-title} – Stock Market Volatility: Patterns and Predictions]{.hidden .quarto-markdown-envelope-contents render-id="quarto-twittercardtitle"}
-[[6]{.chapter-number}&nbsp; [```markdown]{.chapter-title} – Stock Market Volatility: Patterns and Predictions]{.hidden .quarto-markdown-envelope-contents render-id="quarto-ogcardtitle"}
-[Stock Market Volatility: Patterns and Predictions]{.hidden .quarto-markdown-envelope-contents render-id="quarto-metasitename"}
-[]{.hidden .quarto-markdown-envelope-contents render-id="quarto-twittercarddesc"}
-[]{.hidden .quarto-markdown-envelope-contents render-id="quarto-ogcardddesc"}
-:::
-
-
-
-
-&lt;!-- --&gt;
-
-::: {.quarto-embedded-source-code}
-```````````````````{.markdown shortcodes="false"}
-I see the issue - even with `echo: false`, the code is still showing in the rendered document. Let's try a completely different approach:
-
-```markdown
----
-title: "Proposal"
-format: 
-  html:
-    echo: false
-    warning: false
-    message: false
-number-sections: false
----
-
-## Team Members
-- Zhijun He
-- Phoebe Pan
-
-## Project Description
-
-Our project will analyze historical stock market fluctuations from 2000-2025, examining how major economic, political, and global events impact market volatility across different sectors. We'll collect and analyze comprehensive market data from sources like [Yahoo Finance](https://finance.yahoo.com/), [FRED Economic Data](https://fred.stlouisfed.org/), and the [International Monetary Fund (IMF)](https://www.imf.org/en/Data) to identify patterns that precede significant market movements and evaluate the effectiveness of various prediction models in anticipating market corrections and rallies.
-
-## Motivation and Inspiration
-
-Our team selected this project due to its practical relevance in the financial world. Understanding market volatility has direct applications for investment strategies and risk management, which can benefit both individual investors and financial institutions. The abundance of historical market data spanning multiple market cycles, including several major crashes and recoveries, provides us with rich material for analysis and pattern recognition.
-
-We are particularly drawn to the interdisciplinary nature of this project, which allows us to combine financial knowledge, statistical analysis, and machine learning techniques. Recent market fluctuations due to global events have only heightened our interest, as they provide timely case studies for our analysis. Both Zhijun and Phoebe share a strong interest in financial markets and quantitative analysis, making this project a natural fit for our skills and academic goals.
-
-## Implementation Plan
-
-This accelerated 2-week plan begins on April 9, 2025 and concludes on April 23, 2025.
-
-```{=html}
-&lt;table class="table table-striped table-hover table-condensed" style="width: auto; margin: 0 auto; caption-side: top;"&gt;
-&lt;caption style="font-weight: bold;"&gt;Project Timeline and Task Allocation. Source: Created by Zhijun He and Phoebe Pan, April 2025&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr style="background-color: #F0F0F0;"&gt;
-&lt;th style="text-align: center; font-weight: bold;"&gt;Task&lt;/th&gt;
-&lt;th style="text-align: center;"&gt;Deliverable&lt;/th&gt;
-&lt;th style="text-align: center;"&gt;Team Member&lt;/th&gt;
-&lt;th style="text-align: center;"&gt;Timeline&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center; font-weight: bold;"&gt;Data Collection&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Curated dataset of market indices, sector ETFs, and volatility metrics&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Zhijun He&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;April 9-11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center; font-weight: bold;"&gt;Historical Event Mapping&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Timeline of major events correlated with market movements&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Phoebe Pan&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;April 9-11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center; font-weight: bold;"&gt;Exploratory Data Analysis&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Initial visualizations and statistical summaries&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Zhijun He&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;April 12-14&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center; font-weight: bold;"&gt;Pattern Identification&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Report on identified volatility patterns&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Both members&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;April 14-16&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center; font-weight: bold;"&gt;Model Development&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Implementation of prediction models&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Both members&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;April 15-18&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center; font-weight: bold;"&gt;Model Evaluation&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Performance metrics and comparative analysis&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Phoebe Pan&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;April 18-20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center; font-weight: bold;"&gt;Visualization Dashboard&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Interactive web interface for exploring findings&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Zhijun He&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;April 18-21&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center; font-weight: bold;"&gt;Documentation&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Project report, code documentation, and user guide&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Both members&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;April 19-22&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center; font-weight: bold;"&gt;Final Presentation&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Slides and demonstration&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;Both members&lt;/td&gt;
-&lt;td style="text-align: center;"&gt;April 23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;</code></pre>
+<section id="methodological-approach" class="level2">
+<h2 class="anchored" data-anchor-id="methodological-approach">Methodological Approach</h2>
+<p>Our implementation will follow a structured data science workflow with several innovative components:</p>
+<section id="data-acquisition-and-preparation" class="level3">
+<h3 class="anchored" data-anchor-id="data-acquisition-and-preparation">Data Acquisition and Preparation</h3>
+<p>We will collect daily price data for major indices and sector ETFs using the <code>tidyquant</code> package, then calculate several volatility metrics including historical volatility (standard deviation of returns), implied volatility (VIX values), and GARCH model estimations. Data will be validated for completeness and adjusted for corporate actions and dividends. We’ll also integrate macroeconomic indicators from FRED and the IMF to provide contextual data for our analysis.</p>
 </section>
-<section id="expected-outcomes-1" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="expected-outcomes-1"><span class="header-section-number">6.6</span> Expected Outcomes</h2>
+<section id="historical-context-integration" class="level3">
+<h3 class="anchored" data-anchor-id="historical-context-integration">Historical Context Integration</h3>
+<p>We will map significant global events to market data, categorizing events by type (financial, geopolitical, health crises) and estimating their impact radius (local, regional, global). This categorization will allow us to identify pattern differences across event categories and develop a nuanced understanding of how different types of shocks propagate through markets.</p>
+</section>
+<section id="volatility-pattern-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="volatility-pattern-analysis">Volatility Pattern Analysis</h3>
+<p>Using rolling window techniques and regime-switching models, we will identify volatility clusters and examine cross-market correlations during different market environments. We’ll apply principal component analysis to detect common factors driving global volatility and structural break tests to identify shifts in market behavior over time. By analyzing the temporal evolution of volatility regimes, we aim to identify early warning signals of regime transitions.</p>
+</section>
+<section id="predictive-model-development" class="level3">
+<h3 class="anchored" data-anchor-id="predictive-model-development">Predictive Model Development</h3>
+<p>We will implement and compare multiple forecasting approaches: - Time series models (ARIMA, GARCH, EGARCH) - Machine learning models (Random Forests, Gradient Boosting, Neural Networks) - Hybrid methods incorporating market sentiment from financial news sources - Ensemble approaches combining multiple model outputs</p>
+<p>These models will be trained on pre-2020 data and validated on the pandemic period to test their robustness during extreme market conditions.</p>
+</section>
+<section id="interactive-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-visualization">Interactive Visualization</h3>
+<p>We will develop a comprehensive R Shiny dashboard that allows users to: - Explore volatility patterns across different timeframes, markets, and sectors - Compare volatility responses to similar historical events - Examine model predictions against actual outcomes - Test different investment strategies under various volatility scenarios</p>
+<p>The dashboard will be designed with both academic rigor and practical usability in mind, making our findings accessible to both finance professionals and students.</p>
+</section>
+</section>
+<section id="expected-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="expected-outcomes">Expected Outcomes</h2>
 <p>Upon completion of this two-week project, we expect to deliver:</p>
 <ul>
-<li>A comprehensive analysis of market volatility patterns from 2000-2025</li>
-<li>Identification of leading indicators for market shifts<br>
-</li>
-<li>Evaluation of prediction model performance across different market conditions</li>
-<li>Interactive visualization dashboard for exploring market volatility patterns</li>
-<li>Recommendations for investors based on historical pattern analysis</li>
+<li>A comprehensive analysis of market volatility patterns from 2000-2025, including:
+<ul>
+<li>Identification of volatility regimes and transition triggers</li>
+<li>Cross-market correlation analysis during crisis vs.&nbsp;normal periods</li>
+<li>Sector-specific volatility signatures and defensive characteristics</li>
+<li>Evolution of market structure and interconnectedness over time</li>
+</ul></li>
+<li>A volatility early warning system that identifies potential indicators of impending market shifts, including:
+<ul>
+<li>Statistical thresholds for abnormal market behavior</li>
+<li>Pattern recognition for pre-crisis market conditions</li>
+<li>Cross-asset signals that historically preceded major volatility events</li>
+</ul></li>
+<li>Comparative evaluation of prediction model performance across different market conditions:
+<ul>
+<li>Accuracy metrics for various forecasting approaches</li>
+<li>Robustness assessment during extreme market events</li>
+<li>Limitations and confidence intervals for predictions</li>
+<li>Recommendations for model selection based on market context</li>
+</ul></li>
+<li>Interactive visualization dashboard for exploring volatility patterns by market, sector, and time period:
+<ul>
+<li>User-friendly interface with filtering capabilities</li>
+<li>Comparative views for multiple indices or time periods</li>
+<li>Event overlay functionality to examine specific historical episodes</li>
+<li>Export capabilities for further analysis</li>
+</ul></li>
+<li>Evidence-based recommendations for investors on portfolio positioning across different volatility environments:
+<ul>
+<li>Sector rotation strategies based on historical performance</li>
+<li>Diversification effectiveness during different volatility regimes</li>
+<li>Options-based hedging strategy effectiveness</li>
+<li>Early warning indicators for implementation timing</li>
+</ul></li>
 </ul>
-<pre><code></code></pre>
-<p>:::</p>
+<p>This project will contribute to the broader understanding of market dynamics while providing practical tools for investors to navigate uncertain market conditions more effectively. Our analysis will be particularly relevant given the recent periods of heightened volatility experienced in global markets.</p>
+
+
+<!-- -->
+
 </section>
 
 </main> <!-- /main -->
@@ -1148,7 +1109,118 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Case Study</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Proposal"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">## Team Members</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="ss">- </span>Zhijun He</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="ss">- </span>Phoebe Pan</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="fu">## Project Description</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>Our project will analyze historical stock market fluctuations from 2000-2025, examining how major economic, political, and global events impact market volatility across different sectors and regions. We'll collect and analyze comprehensive market data from authoritative sources including <span class="co">[</span><span class="ot">Yahoo Finance</span><span class="co">](https://finance.yahoo.com/)</span>, <span class="co">[</span><span class="ot">FRED Economic Data</span><span class="co">](https://fred.stlouisfed.org/)</span>, and the <span class="co">[</span><span class="ot">International Monetary Fund (IMF)</span><span class="co">](https://www.imf.org/en/Data)</span> to identify patterns that precede significant market movements and evaluate the effectiveness of various prediction models in anticipating market corrections and rallies.</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a>The analysis will focus on six major global indices (S&amp;P 500, FTSE 100, DAX, CAC 40, Nikkei 225, and Hang Seng) to provide balanced geographic representation spanning North America, Europe, and Asia. Additionally, we'll examine sector-specific ETFs to understand how different economic sectors respond to volatility events. This cross-market approach will enable us to detect both universal volatility patterns and region-specific responses to global events.</span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="fu">## Motivation and Inspiration</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a>Our team selected this project due to its significant practical relevance in the financial world and its rich analytical potential. Understanding market volatility has direct applications for:</span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="ss">1. </span>**Investment strategies** - Helping investors anticipate market conditions and adjust portfolios accordingly</span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="ss">2. </span>**Risk management** - Providing frameworks for financial institutions to hedge against potential market turbulence</span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="ss">3. </span>**Policy insights** - Offering data-driven perspectives on how economic policies affect market stability</span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a>The abundance of historical market data spanning multiple complete market cycles—including the 2000 Dot-com bubble, 2008 financial crisis, the 2020 pandemic shock, and subsequent recoveries—provides exceptional material for pattern identification and model validation. This historical depth allows us to test our hypotheses across diverse market environments.</span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a>We are particularly drawn to the interdisciplinary nature of this project, which allows us to combine financial knowledge, statistical analysis, and machine learning techniques. Recent market fluctuations due to global events have only heightened our interest, as they provide timely case studies for our analysis. Both Zhijun and Phoebe share a strong interest in financial markets and quantitative analysis, making this project an ideal match for our academic backgrounds and professional aspirations.</span>
+<span id="cb1-27"><a href="#cb1-27"></a></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="fu">## Implementation Plan</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a></span>
+<span id="cb1-30"><a href="#cb1-30"></a>This accelerated 2-week plan begins on April 9, 2025 and concludes on April 23, 2025.</span>
+<span id="cb1-31"><a href="#cb1-31"></a></span>
+<span id="cb1-32"><a href="#cb1-32"></a>| Task | Deliverable | Team Member | Timeline | Key Components |</span>
+<span id="cb1-33"><a href="#cb1-33"></a>|:-----|:------------|:------------|:---------|:---------------|</span>
+<span id="cb1-34"><a href="#cb1-34"></a>| Data Collection | Curated dataset of market indices, sector ETFs, and volatility metrics | Zhijun He | April 9-11 | Daily price data from 2000-2025; calculated volatility metrics; integrated macroeconomic indicators |</span>
+<span id="cb1-35"><a href="#cb1-35"></a>| Historical Event Mapping | Timeline of major events correlated with market movements | Phoebe Pan | April 9-11 | Categorized events (financial, geopolitical, health); sentiment scoring; event-impact assessment |</span>
+<span id="cb1-36"><a href="#cb1-36"></a>| Exploratory Data Analysis | Initial visualizations and statistical summaries | Zhijun He | April 12-14 | Distribution analysis; correlation matrices; regime identification; cross-market comparison |</span>
+<span id="cb1-37"><a href="#cb1-37"></a>| Pattern Identification | Report on identified volatility patterns | Both members | April 14-16 | Volatility clustering analysis; cross-asset correlation during stress periods; market structure changes |</span>
+<span id="cb1-38"><a href="#cb1-38"></a>| Model Development | Implementation of prediction models | Both members | April 15-18 | GARCH models; machine learning approaches; hybrid forecasting methods; sentiment integration |</span>
+<span id="cb1-39"><a href="#cb1-39"></a>| Model Evaluation | Performance metrics and comparative analysis | Phoebe Pan | April 18-20 | Out-of-sample testing; crisis period performance; prediction confidence metrics; model robustness |</span>
+<span id="cb1-40"><a href="#cb1-40"></a>| Visualization Dashboard | Interactive web interface for exploring findings | Zhijun He | April 18-21 | R Shiny implementation; dynamic filtering; comparison views; model forecast visualization |</span>
+<span id="cb1-41"><a href="#cb1-41"></a>| Documentation | Project report, code documentation, and user guide | Both members | April 19-22 | Methodology explanation; result interpretation; code annotations; user instructions |</span>
+<span id="cb1-42"><a href="#cb1-42"></a>| Final Presentation | Slides and demonstration | Both members | April 23 | Key findings summary; live dashboard demonstration; future research directions |</span>
+<span id="cb1-43"><a href="#cb1-43"></a></span>
+<span id="cb1-44"><a href="#cb1-44"></a>Table: Project Timeline and Task Allocation. Source: Created by Zhijun He and Phoebe Pan, April 2025</span>
+<span id="cb1-45"><a href="#cb1-45"></a></span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="fu">## Methodological Approach</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a></span>
+<span id="cb1-48"><a href="#cb1-48"></a>Our implementation will follow a structured data science workflow with several innovative components:</span>
+<span id="cb1-49"><a href="#cb1-49"></a></span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="fu">### Data Acquisition and Preparation</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>We will collect daily price data for major indices and sector ETFs using the <span class="in">`tidyquant`</span> package, then calculate several volatility metrics including historical volatility (standard deviation of returns), implied volatility (VIX values), and GARCH model estimations. Data will be validated for completeness and adjusted for corporate actions and dividends. We'll also integrate macroeconomic indicators from FRED and the IMF to provide contextual data for our analysis.</span>
+<span id="cb1-52"><a href="#cb1-52"></a></span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="fu">### Historical Context Integration</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a>We will map significant global events to market data, categorizing events by type (financial, geopolitical, health crises) and estimating their impact radius (local, regional, global). This categorization will allow us to identify pattern differences across event categories and develop a nuanced understanding of how different types of shocks propagate through markets.</span>
+<span id="cb1-55"><a href="#cb1-55"></a></span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="fu">### Volatility Pattern Analysis</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a>Using rolling window techniques and regime-switching models, we will identify volatility clusters and examine cross-market correlations during different market environments. We'll apply principal component analysis to detect common factors driving global volatility and structural break tests to identify shifts in market behavior over time. By analyzing the temporal evolution of volatility regimes, we aim to identify early warning signals of regime transitions.</span>
+<span id="cb1-58"><a href="#cb1-58"></a></span>
+<span id="cb1-59"><a href="#cb1-59"></a><span class="fu">### Predictive Model Development</span></span>
+<span id="cb1-60"><a href="#cb1-60"></a>We will implement and compare multiple forecasting approaches:</span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="ss">- </span>Time series models (ARIMA, GARCH, EGARCH)</span>
+<span id="cb1-62"><a href="#cb1-62"></a><span class="ss">- </span>Machine learning models (Random Forests, Gradient Boosting, Neural Networks)</span>
+<span id="cb1-63"><a href="#cb1-63"></a><span class="ss">- </span>Hybrid methods incorporating market sentiment from financial news sources</span>
+<span id="cb1-64"><a href="#cb1-64"></a><span class="ss">- </span>Ensemble approaches combining multiple model outputs</span>
+<span id="cb1-65"><a href="#cb1-65"></a></span>
+<span id="cb1-66"><a href="#cb1-66"></a>These models will be trained on pre-2020 data and validated on the pandemic period to test their robustness during extreme market conditions.</span>
+<span id="cb1-67"><a href="#cb1-67"></a></span>
+<span id="cb1-68"><a href="#cb1-68"></a><span class="fu">### Interactive Visualization</span></span>
+<span id="cb1-69"><a href="#cb1-69"></a>We will develop a comprehensive R Shiny dashboard that allows users to:</span>
+<span id="cb1-70"><a href="#cb1-70"></a><span class="ss">- </span>Explore volatility patterns across different timeframes, markets, and sectors</span>
+<span id="cb1-71"><a href="#cb1-71"></a><span class="ss">- </span>Compare volatility responses to similar historical events</span>
+<span id="cb1-72"><a href="#cb1-72"></a><span class="ss">- </span>Examine model predictions against actual outcomes</span>
+<span id="cb1-73"><a href="#cb1-73"></a><span class="ss">- </span>Test different investment strategies under various volatility scenarios</span>
+<span id="cb1-74"><a href="#cb1-74"></a></span>
+<span id="cb1-75"><a href="#cb1-75"></a>The dashboard will be designed with both academic rigor and practical usability in mind, making our findings accessible to both finance professionals and students.</span>
+<span id="cb1-76"><a href="#cb1-76"></a></span>
+<span id="cb1-77"><a href="#cb1-77"></a><span class="fu">## Expected Outcomes</span></span>
+<span id="cb1-78"><a href="#cb1-78"></a></span>
+<span id="cb1-79"><a href="#cb1-79"></a>Upon completion of this two-week project, we expect to deliver:</span>
+<span id="cb1-80"><a href="#cb1-80"></a></span>
+<span id="cb1-81"><a href="#cb1-81"></a><span class="ss">- </span>A comprehensive analysis of market volatility patterns from 2000-2025, including:</span>
+<span id="cb1-82"><a href="#cb1-82"></a><span class="ss">  * </span>Identification of volatility regimes and transition triggers</span>
+<span id="cb1-83"><a href="#cb1-83"></a><span class="ss">  * </span>Cross-market correlation analysis during crisis vs. normal periods</span>
+<span id="cb1-84"><a href="#cb1-84"></a><span class="ss">  * </span>Sector-specific volatility signatures and defensive characteristics</span>
+<span id="cb1-85"><a href="#cb1-85"></a><span class="ss">  * </span>Evolution of market structure and interconnectedness over time</span>
+<span id="cb1-86"><a href="#cb1-86"></a></span>
+<span id="cb1-87"><a href="#cb1-87"></a><span class="ss">- </span>A volatility early warning system that identifies potential indicators of impending market shifts, including:</span>
+<span id="cb1-88"><a href="#cb1-88"></a><span class="ss">  * </span>Statistical thresholds for abnormal market behavior</span>
+<span id="cb1-89"><a href="#cb1-89"></a><span class="ss">  * </span>Pattern recognition for pre-crisis market conditions</span>
+<span id="cb1-90"><a href="#cb1-90"></a><span class="ss">  * </span>Cross-asset signals that historically preceded major volatility events</span>
+<span id="cb1-91"><a href="#cb1-91"></a></span>
+<span id="cb1-92"><a href="#cb1-92"></a><span class="ss">- </span>Comparative evaluation of prediction model performance across different market conditions:</span>
+<span id="cb1-93"><a href="#cb1-93"></a><span class="ss">  * </span>Accuracy metrics for various forecasting approaches</span>
+<span id="cb1-94"><a href="#cb1-94"></a><span class="ss">  * </span>Robustness assessment during extreme market events</span>
+<span id="cb1-95"><a href="#cb1-95"></a><span class="ss">  * </span>Limitations and confidence intervals for predictions</span>
+<span id="cb1-96"><a href="#cb1-96"></a><span class="ss">  * </span>Recommendations for model selection based on market context</span>
+<span id="cb1-97"><a href="#cb1-97"></a></span>
+<span id="cb1-98"><a href="#cb1-98"></a><span class="ss">- </span>Interactive visualization dashboard for exploring volatility patterns by market, sector, and time period:</span>
+<span id="cb1-99"><a href="#cb1-99"></a><span class="ss">  * </span>User-friendly interface with filtering capabilities</span>
+<span id="cb1-100"><a href="#cb1-100"></a><span class="ss">  * </span>Comparative views for multiple indices or time periods</span>
+<span id="cb1-101"><a href="#cb1-101"></a><span class="ss">  * </span>Event overlay functionality to examine specific historical episodes</span>
+<span id="cb1-102"><a href="#cb1-102"></a><span class="ss">  * </span>Export capabilities for further analysis</span>
+<span id="cb1-103"><a href="#cb1-103"></a></span>
+<span id="cb1-104"><a href="#cb1-104"></a><span class="ss">- </span>Evidence-based recommendations for investors on portfolio positioning across different volatility environments:</span>
+<span id="cb1-105"><a href="#cb1-105"></a><span class="ss">  * </span>Sector rotation strategies based on historical performance</span>
+<span id="cb1-106"><a href="#cb1-106"></a><span class="ss">  * </span>Diversification effectiveness during different volatility regimes</span>
+<span id="cb1-107"><a href="#cb1-107"></a><span class="ss">  * </span>Options-based hedging strategy effectiveness</span>
+<span id="cb1-108"><a href="#cb1-108"></a><span class="ss">  * </span>Early warning indicators for implementation timing</span>
+<span id="cb1-109"><a href="#cb1-109"></a></span>
+<span id="cb1-110"><a href="#cb1-110"></a>This project will contribute to the broader understanding of market dynamics while providing practical tools for investors to navigate uncertain market conditions more effectively. Our analysis will be particularly relevant given the recent periods of heightened volatility experienced in global markets.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1156,8 +1228,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-      <div class="footer-contents"> </div>  
-    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
