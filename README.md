@@ -3,7 +3,7 @@
 ### Macalester College
 
 <p align="center">
-  <img src="https://commons.wikimedia.org/wiki/File:Macalester_College_Logo.png" width="300">
+  <img src="https://commons.wikimedia.org/wiki/File:Macalester_College_Logo.png" width="400">
   <br>
 </p>
 
@@ -196,7 +196,6 @@ To reproduce our analysis, follow these steps:
 5. Explore specific analyses:
    - Open individual .qmd files to run specific sections
    - View rendered output in the `docs/` directory
-   - Use `source("R/specific_function.R")` to load custom functions
 
 ## 📈 Key Visualizations
 
@@ -231,7 +230,7 @@ Building on our work, we identify these promising avenues for future research:
 
 We express our sincere gratitude to:
 
-- **Professor Amin Alhashim**, Department of Mathematics, Statistics, and Computer Science at Macalester College, for her exceptional guidance and thoughtful feedback throughout this project （We love you Amin!）
+- **Professor Amin Alhashim**, Department of Mathematics, Statistics, and Computer Science at Macalester College, for his exceptional guidance and thoughtful feedback throughout this project (We love you Amin!)
 - **Yahoo Finance** for providing the historical financial data accessed through the tidyquant package
 - **Macalester College DeWitt Wallace Library** for access to financial databases and research resources
 - Fellow students in STAT 112 for their valuable peer reviews and suggestions
@@ -241,12 +240,13 @@ We express our sincere gratitude to:
 For questions or collaboration opportunities:
 
 - **Zhijun He**: zhe@macalester.edu
+- **Phoebe Pan**: ppan@macalester.edu
 
 ### Additional Resources
 - **Interactive Dashboard**: [Market Volatility Dashboard](https://mac-stat112-s25.github.io/project-starfall/)
 - **Presentation Video**: See `Zhijun:Phoebe- Presentation-Starfall.mp4` in the repository
 - **Presentation Slides**: Available as `DS112 Final Pre_ Stock Market Volatility.pptx`
-- **GitHub Classroom**: This project was completed as part of Macalester College's STAT 112 course
+- **GitHub Repository**: [mac-stat112-s25/project-starfall](https://github.com/mac-stat112-s25/project-starfall)
 
 ---
 
