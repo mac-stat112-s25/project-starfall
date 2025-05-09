@@ -1,0 +1,61 @@
+---
+title: "Exploratory Data Analysis: Phoebe Pan"
+author: "Phoebe Pan"
+format: html
+---
+
+## Introduction
+
+This document contains exploratory data analysis (EDA) for the group project, focusing on stock market volatility patterns and predictors across major global markets from 2000 to 2025.
+
+## Data Import
+
+```{r}
+# Load necessary packages
+library(tidyverse)
+library(tidyquant)
+library(lubridate)
+library(ggplot2)
+library(TTR)
+library(zoo)
+```
+
+```{r}
+# import the data
+indices <- c("^GSPC", "^FTSE", "^N225", "^GDAXI", "^FCHI", "^HSI")
+
+market_data <- tq_get(indices, get = "stock.prices",
+                      from = "2000-01-01",
+                      to = Sys.Date())
+
+```
+
+```{r}
+# Glimpse of data structure
+glimpse(market_data)
+
+# Check missing values
+sapply(market_data, function(x) sum(is.na(x)))
+```
+This code provides a quick overview of the structure of the market_data dataset, confirming that we have data for multiple major indices with key variables such as open, close, high, low, volume, and adjusted price for each trading day from 2000 to the present.I examined the dataset for missing values and found that a small percentage (330 days) of entries are missing across several columns, including open, high, low, close, volume, and adjusted prices. The presence of missing values is typical for financial datasets due to market holidays or data reporting inconsistencies. 
+
+```{r}
+ggplot(market_data, aes(x = adjusted, fill = symbol)) +
+  geom_histogram(bins = 50, alpha = 0.6, position = "identity") +
+  scale_x_log10() +
+  labs(title = "Distribution of Adjusted Closing Prices", x = "Adjusted Close (log scale)", y = "Count") +
+  facet_wrap(~ symbol, scales = "free_y") +
+  theme_minimal()
+```
+The histogram displays the distribution of adjusted closing prices for each major stock index, with prices shown on a logarithmic scale for better comparison in 25yrs. The log scale reveals the wide variation in price levels between different indices, such as the GSPC and Nikkei 225. 
+
+
+```{r}
+ggplot(market_data, aes(x = date, y = adjusted, color = symbol)) +
+  geom_line(alpha = 0.7) +
+  labs(title = "Time Series of Adjusted Prices (2000–Present)", x = "Date", y = "Adjusted Price") +
+  theme_minimal()
+```
+
+The time series plot illustrates the trajectory of adjusted closing prices for all these indices from 2000 to 2025. Notably, the plot highlights the 2008 global financial crisis and the COVID-19 market shock, which appear as periods of sharp price declines or increased volatility across multiple indices.
+
