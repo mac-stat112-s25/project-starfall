@@ -3,9 +3,8 @@
 ### Macalester College
 
 <p align="center">
-  <img src="https://www.liberalarts.org/wp-content/uploads/2015/12/logo-macalester.png" alt="Macalester College Logo" width="300">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Macalester_College_Logo.png" alt="Macalester College Logo" width="300">
   <br>
-  <em>Figure: Global Market Volatility Patterns (2000-2025)</em>
 </p>
 
 ## 👥 Team Members
