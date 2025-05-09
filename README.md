@@ -3,9 +3,8 @@
 ### Macalester College
 
 <p align="center">
-  <img src="https://www.liberalarts.org/wp-content/uploads/2015/12/logo-macalester.png" alt="Macalester College Logo" width="300">
+  <img src="https://commons.wikimedia.org/wiki/File:Macalester_College_Logo.png" alt="Macalester College Logo" width="300">
   <br>
-  <em>Figure: Global Market Volatility Patterns (2000-2025)</em>
 </p>
 
 ## 👥 Team Members
@@ -232,7 +231,7 @@ Building on our work, we identify these promising avenues for future research:
 
 We express our sincere gratitude to:
 
-- **Professor Amin Alhashim**, Department of Mathematics, Statistics, and Computer Science at Macalester College, for her exceptional guidance and thoughtful feedback throughout this project
+- **Professor Amin Alhashim**, Department of Mathematics, Statistics, and Computer Science at Macalester College, for her exceptional guidance and thoughtful feedback throughout this project （We love you Amin!）
 - **Yahoo Finance** for providing the historical financial data accessed through the tidyquant package
 - **Macalester College DeWitt Wallace Library** for access to financial databases and research resources
 - Fellow students in STAT 112 for their valuable peer reviews and suggestions
