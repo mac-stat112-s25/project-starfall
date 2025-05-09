@@ -3,7 +3,7 @@
 ### Macalester College
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/en/0/02/Macalester_College_seal.png" width="200">
+  <img src="https://minitex.umn.edu/sites/default/files/styles/manual_crop_16_9/public/images/2021-06/mac-primary-logo-spot-blue.png?h=35d2f964&itok=MbgeDE_y" width="400">
   <br>
 </p>
 
