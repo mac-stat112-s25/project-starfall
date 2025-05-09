@@ -3,7 +3,7 @@
 ### Macalester College
 
 <p align="center">
-  <img src="https://commons.wikimedia.org/wiki/File:Macalester_College_Logo.png" alt="Macalester College Logo" width="300">
+  <img src="https://commons.wikimedia.org/wiki/File:Macalester_College_Logo.png" width="300">
   <br>
 </p>
 
