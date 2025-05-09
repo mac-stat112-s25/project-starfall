@@ -3,8 +3,9 @@
 ### Macalester College
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Macalester_College_Logo.png" alt="Macalester College Logo" width="300">
+  <img src="https://www.liberalarts.org/wp-content/uploads/2015/12/logo-macalester.png" alt="Macalester College Logo" width="300">
   <br>
+  <em>Figure: Global Market Volatility Patterns (2000-2025)</em>
 </p>
 
 ## 👥 Team Members
@@ -231,23 +232,16 @@ Building on our work, we identify these promising avenues for future research:
 
 We express our sincere gratitude to:
 
-- **Professor Lisa Lendway**, Department of Mathematics, Statistics, and Computer Science at Macalester College, for her exceptional guidance and thoughtful feedback throughout this project
-- **Teaching Assistants**: Jordan Smith and Alex Johnson for their technical support and methodological insights
+- **Professor Amin Alhashim**, Department of Mathematics, Statistics, and Computer Science at Macalester College, for her exceptional guidance and thoughtful feedback throughout this project
 - **Yahoo Finance** for providing the historical financial data accessed through the tidyquant package
 - **Macalester College DeWitt Wallace Library** for access to financial databases and research resources
-- **Macalester College High-Performance Computing Cluster** for computational resources
 - Fellow students in STAT 112 for their valuable peer reviews and suggestions
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 📧 Contact & Resources
 
 For questions or collaboration opportunities:
 
 - **Zhijun He**: zhe@macalester.edu
-- **Phoebe Pan**: ppan@macalester.edu
 
 ### Additional Resources
 - **Interactive Dashboard**: [Market Volatility Dashboard](https://mac-stat112-s25.github.io/project-starfall/)
