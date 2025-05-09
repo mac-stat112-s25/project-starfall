@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>3&nbsp; Zhijun H – Stock Market Volatility: Patterns and Predictions</title>
+<title>Zhijun H – Stock Market Volatility: Patterns and Predictions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -237,22 +237,20 @@ cookieconsent.run({
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#data-import-and-preparation" id="toc-data-import-and-preparation" class="nav-link active" data-scroll-target="#data-import-and-preparation"><span class="header-section-number">3.1</span> Data Import and Preparation</a></li>
-  <li><a href="#data-structure-and-quality-assessment" id="toc-data-structure-and-quality-assessment" class="nav-link" data-scroll-target="#data-structure-and-quality-assessment"><span class="header-section-number">3.2</span> Data Structure and Quality Assessment</a></li>
-  <li><a href="#price-trends-and-market-evolution" id="toc-price-trends-and-market-evolution" class="nav-link" data-scroll-target="#price-trends-and-market-evolution"><span class="header-section-number">3.3</span> Price Trends and Market Evolution</a></li>
-  <li><a href="#volatility-analysis-the-heartbeat-of-markets" id="toc-volatility-analysis-the-heartbeat-of-markets" class="nav-link" data-scroll-target="#volatility-analysis-the-heartbeat-of-markets"><span class="header-section-number">3.4</span> Volatility Analysis: The Heartbeat of Markets</a></li>
-  <li><a href="#market-correlations-the-global-financial-web" id="toc-market-correlations-the-global-financial-web" class="nav-link" data-scroll-target="#market-correlations-the-global-financial-web"><span class="header-section-number">3.5</span> Market Correlations: The Global Financial Web</a></li>
-  <li><a href="#temporal-patterns-cycles-and-seasonality" id="toc-temporal-patterns-cycles-and-seasonality" class="nav-link" data-scroll-target="#temporal-patterns-cycles-and-seasonality"><span class="header-section-number">3.6</span> Temporal Patterns: Cycles and Seasonality</a></li>
-  <li><a href="#advanced-volatility-analysis-risk-regimes" id="toc-advanced-volatility-analysis-risk-regimes" class="nav-link" data-scroll-target="#advanced-volatility-analysis-risk-regimes"><span class="header-section-number">3.7</span> Advanced Volatility Analysis: Risk Regimes</a></li>
-  <li><a href="#summary-statistics-and-performance-metrics" id="toc-summary-statistics-and-performance-metrics" class="nav-link" data-scroll-target="#summary-statistics-and-performance-metrics"><span class="header-section-number">3.8</span> Summary Statistics and Performance Metrics</a></li>
-  <li><a href="#insights-and-conclusions" id="toc-insights-and-conclusions" class="nav-link" data-scroll-target="#insights-and-conclusions"><span class="header-section-number">3.9</span> Insights and Conclusions</a></li>
+<li><a href="#data-import-and-preparation" id="toc-data-import-and-preparation" class="nav-link active" data-scroll-target="#data-import-and-preparation">Data Import and Preparation</a></li>
+  <li><a href="#data-structure-and-quality-assessment" id="toc-data-structure-and-quality-assessment" class="nav-link" data-scroll-target="#data-structure-and-quality-assessment">Data Structure and Quality Assessment</a></li>
+  <li><a href="#price-trends-and-market-evolution" id="toc-price-trends-and-market-evolution" class="nav-link" data-scroll-target="#price-trends-and-market-evolution">Price Trends and Market Evolution</a></li>
+  <li><a href="#volatility-analysis-the-heartbeat-of-markets" id="toc-volatility-analysis-the-heartbeat-of-markets" class="nav-link" data-scroll-target="#volatility-analysis-the-heartbeat-of-markets">Volatility Analysis: The Heartbeat of Markets</a></li>
+  <li><a href="#market-correlations-the-global-financial-web" id="toc-market-correlations-the-global-financial-web" class="nav-link" data-scroll-target="#market-correlations-the-global-financial-web">Market Correlations: The Global Financial Web</a></li>
+  <li><a href="#temporal-patterns-cycles-and-seasonality" id="toc-temporal-patterns-cycles-and-seasonality" class="nav-link" data-scroll-target="#temporal-patterns-cycles-and-seasonality">Temporal Patterns: Cycles and Seasonality</a></li>
+  <li><a href="#advanced-volatility-analysis-risk-regimes" id="toc-advanced-volatility-analysis-risk-regimes" class="nav-link" data-scroll-target="#advanced-volatility-analysis-risk-regimes">Advanced Volatility Analysis: Risk Regimes</a></li>
+  <li><a href="#summary-statistics-and-performance-metrics" id="toc-summary-statistics-and-performance-metrics" class="nav-link" data-scroll-target="#summary-statistics-and-performance-metrics">Summary Statistics and Performance Metrics</a></li>
+  <li><a href="#insights-and-conclusions" id="toc-insights-and-conclusions" class="nav-link" data-scroll-target="#insights-and-conclusions">Insights and Conclusions</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/EDA - Phoebe Pan.html">EDA</a></li><li class="breadcrumb-item"><a href="../src/EDA - Zhijun He.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Zhijun H</span></a></li></ol></nav><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Zhijun H</span>
-</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">Zhijun H</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -266,8 +264,7 @@ cookieconsent.run({
   
 
 
-</header><section id="data-import-and-preparation" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="data-import-and-preparation">
-<span class="header-section-number">3.1</span> Data Import and Preparation</h2>
+</header><section id="data-import-and-preparation" class="level2"><h2 class="anchored" data-anchor-id="data-import-and-preparation">Data Import and Preparation</h2>
 <p>In this analysis, I’m examining the historical performance and volatility patterns of six major global stock indices across different market cycles. The selection of indices provides a balanced geographic representation covering North America, Europe, and Asia, allowing for comprehensive cross-market comparison.</p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load required packages</span></span>
@@ -370,8 +367,7 @@ Nikkei 225 (Japan), Hang Seng (Hong Kong)
 </tbody></table>
 </div>
 <p>The data collection process leverages the tidyquant package’s integration with Yahoo Finance to retrieve daily trading information for each index from January 2000 through May 2025. This extensive timeframe encompasses multiple economic cycles, bull and bear markets, and several major financial crises, providing a robust foundation for volatility analysis. For each index, I capture standard OHLC (Open, High, Low, Close) price data along with trading volume and adjusted prices that account for dividends and splits.</p>
-</section><section id="data-structure-and-quality-assessment" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="data-structure-and-quality-assessment">
-<span class="header-section-number">3.2</span> Data Structure and Quality Assessment</h2>
+</section><section id="data-structure-and-quality-assessment" class="level2"><h2 class="anchored" data-anchor-id="data-structure-and-quality-assessment">Data Structure and Quality Assessment</h2>
 <div class="dataset-overview" style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px; border-left: 5px solid #4682B4;">
 <h3 style="margin-top: 0;" class="anchored">
 Dataset Overview
@@ -529,8 +525,7 @@ Market Indices:
 <p>The dataset consists of nearly 38,500 daily observations across six major global indices spanning over 25 years. The completeness analysis reveals consistent data availability across all markets, with completeness ratios between 68-70%. This pattern aligns with expectations given that trading doesn’t occur on weekends and holidays, which typically account for approximately 30% of calendar days annually.</p>
 <p>European indices (FTSE 100, DAX, and CAC 40) show slightly higher completeness rates, potentially reflecting fewer market holidays compared to Asian exchanges. The Hang Seng index exhibits the lowest completeness at 68.3%, which can be attributed to extended New Year celebrations and additional regional holidays observed in Hong Kong. These small variations in data availability don’t significantly impact our analysis, as each index still provides robust coverage across the entire study period.</p>
 <p>This thorough assessment confirms we have a high-quality dataset with consistent trading information across different market environments, providing a solid foundation for examining volatility patterns through multiple economic cycles and global events.</p>
-</section><section id="price-trends-and-market-evolution" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="price-trends-and-market-evolution">
-<span class="header-section-number">3.3</span> Price Trends and Market Evolution</h2>
+</section><section id="price-trends-and-market-evolution" class="level2"><h2 class="anchored" data-anchor-id="price-trends-and-market-evolution">Price Trends and Market Evolution</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Visualizing long-term price trends with annotations for major events</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>financial_events <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -573,8 +568,7 @@ Market Indices:
 </div>
 </div>
 <p>Examining the long-term price trends reveals a fascinating story of market resilience and regional divergence. Despite facing three major global crises over the past quarter-century, all indices have demonstrated remarkable recovery capabilities, though with distinct patterns. The S&amp;P 500 stands out with its exceptional post-crisis performance, particularly following the 2008 financial crisis and the 2020 pandemic, where its recovery trajectory significantly outpaced other major markets. European indices (DAX, CAC 40, FTSE 100) show more moderate but steady growth, while Asian markets exhibit greater volatility during crisis periods but also powerful recoveries, particularly the Nikkei 225 after 2012. These divergent recovery patterns highlight the influence of regional economic policies, sector compositions, and monetary interventions on market performance.</p>
-</section><section id="volatility-analysis-the-heartbeat-of-markets" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="volatility-analysis-the-heartbeat-of-markets">
-<span class="header-section-number">3.4</span> Volatility Analysis: The Heartbeat of Markets</h2>
+</section><section id="volatility-analysis-the-heartbeat-of-markets" class="level2"><h2 class="anchored" data-anchor-id="volatility-analysis-the-heartbeat-of-markets">Volatility Analysis: The Heartbeat of Markets</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Calculating daily returns and volatility metrics</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>market_analysis <span class="ot">&lt;-</span> market_data <span class="sc">%&gt;%</span></span>
@@ -742,8 +736,7 @@ Market Indices:
 </div>
 <p>My volatility analysis reveals striking patterns in how market uncertainty propagates across global indices. The visualization clearly shows volatility clustering—periods of high volatility tend to group together, with major spikes coinciding with the 2008 financial crisis, the 2020 pandemic, and the 2022 Russia-Ukraine conflict. Asian markets consistently exhibit higher baseline volatility, with the Hang Seng showing the highest average annualized volatility at 23.6%. In contrast, the FTSE 100 demonstrates the most stability with an average volatility of just 18.2%, reflecting the UK market’s defensive sector composition.</p>
 <p>A fascinating insight emerges when examining crisis response patterns: during the 2008 financial crisis, volatility amplification was most pronounced in Western markets, while the 2020 pandemic triggered more uniform volatility spikes across all indices. The 2022 geopolitical tensions produced a more muted volatility response, suggesting markets have become more resilient to non-financial shocks in recent years. These distinct volatility signatures provide valuable context for risk management strategies across different market environments.</p>
-</section><section id="market-correlations-the-global-financial-web" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="market-correlations-the-global-financial-web">
-<span class="header-section-number">3.5</span> Market Correlations: The Global Financial Web</h2>
+</section><section id="market-correlations-the-global-financial-web" class="level2"><h2 class="anchored" data-anchor-id="market-correlations-the-global-financial-web">Market Correlations: The Global Financial Web</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Preparing daily returns by index</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>daily_returns <span class="ot">&lt;-</span> market_analysis <span class="sc">%&gt;%</span></span>
@@ -806,8 +799,7 @@ Market Indices:
 <p>My correlation analysis uncovers the complex interdependencies within the global financial system. European markets form the most tightly connected cluster, with the DAX, CAC 40, and FTSE 100 showing remarkably strong correlations (0.78-0.91), reflecting their geographic proximity, shared regulatory environments, and economic integration through the European Union.</p>
 <p>The S&amp;P 500 maintains moderate to strong correlations with all markets (0.57-0.65), underscoring its central role in the global financial system and its influence on worldwide market sentiment. Most notable is the relative independence of Asian markets, particularly the Hang Seng, which shows the weakest correlations with other indices (0.32-0.45). This suggests substantial diversification benefits for global portfolios that include exposure to these Asian markets.</p>
 <p>These correlation patterns have important implications for portfolio construction, risk management, and for understanding how financial shocks propagate through the global system. The strongest links appear between markets with overlapping trading hours, suggesting that real-time information transmission plays a key role in driving these relationships.</p>
-</section><section id="temporal-patterns-cycles-and-seasonality" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="temporal-patterns-cycles-and-seasonality">
-<span class="header-section-number">3.6</span> Temporal Patterns: Cycles and Seasonality</h2>
+</section><section id="temporal-patterns-cycles-and-seasonality" class="level2"><h2 class="anchored" data-anchor-id="temporal-patterns-cycles-and-seasonality">Temporal Patterns: Cycles and Seasonality</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Analyzing volatility by year</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>yearly_volatility <span class="ot">&lt;-</span> market_analysis <span class="sc">%&gt;%</span></span>
@@ -889,8 +881,7 @@ Market Indices:
 <p>My temporal analysis reveals fascinating cyclical patterns in market behavior across different time horizons. The yearly volatility plot demonstrates clear crisis-driven cycles, with all markets experiencing synchronized volatility spikes during 2008, 2020, and to a lesser extent, 2022. Interestingly, I observe that Asian markets tend to maintain elevated volatility for longer periods after major shocks, while Western markets, particularly the S&amp;P 500, show more rapid volatility normalization.</p>
 <p>At the monthly level, distinct seasonal patterns emerge that have important implications for trading strategies. April emerges as the strongest month for returns across most indices, aligning with the “Sell in May” investment adage. September and October consistently show elevated volatility across all markets—a pattern often referred to as the “October effect” in financial literature. The Hang Seng exhibits particularly pronounced monthly return dispersion, suggesting greater sensitivity to seasonal factors.</p>
 <p>These temporal signatures provide valuable inputs for market timing strategies and risk management approaches, as they reveal predictable windows of heightened uncertainty and potential return opportunities across the global market landscape.</p>
-</section><section id="advanced-volatility-analysis-risk-regimes" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="advanced-volatility-analysis-risk-regimes">
-<span class="header-section-number">3.7</span> Advanced Volatility Analysis: Risk Regimes</h2>
+</section><section id="advanced-volatility-analysis-risk-regimes" class="level2"><h2 class="anchored" data-anchor-id="advanced-volatility-analysis-risk-regimes">Advanced Volatility Analysis: Risk Regimes</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Creating volatility clusters</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>volatility_clusters <span class="ot">&lt;-</span> market_analysis <span class="sc">%&gt;%</span></span>
@@ -950,8 +941,7 @@ Market Indices:
 <p>Western indices, particularly the S&amp;P 500 and DAX, show the expected negative relationship between volatility and returns—their average daily returns deteriorate as volatility increases, with the S&amp;P 500 actually showing negative average returns during high-volatility periods. This pattern aligns with the “fear premium” concept, where market uncertainty drives risk aversion and equity selling.</p>
 <p>Surprisingly, Asian markets demonstrate unusual resilience during turbulent periods. The Hang Seng and Nikkei 225 maintain relatively stable returns across volatility regimes, with only modest deterioration in high-volatility environments. This suggests fundamentally different investor behavior in these markets, possibly reflecting greater retail investor participation, different institutional structures, or varying monetary policy approaches.</p>
 <p>These insights have significant implications for risk management strategies and suggest that optimal portfolio allocations should shift toward Asian exposure during periods of elevated global market stress.</p>
-</section><section id="summary-statistics-and-performance-metrics" class="level2" data-number="3.8"><h2 data-number="3.8" class="anchored" data-anchor-id="summary-statistics-and-performance-metrics">
-<span class="header-section-number">3.8</span> Summary Statistics and Performance Metrics</h2>
+</section><section id="summary-statistics-and-performance-metrics" class="level2"><h2 class="anchored" data-anchor-id="summary-statistics-and-performance-metrics">Summary Statistics and Performance Metrics</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Generating comprehensive summary statistics</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>market_summary <span class="ot">&lt;-</span> market_analysis <span class="sc">%&gt;%</span></span>
@@ -1052,8 +1042,7 @@ Market Indices:
 </table>
 </div>
 </div>
-</section><section id="insights-and-conclusions" class="level2" data-number="3.9"><h2 data-number="3.9" class="anchored" data-anchor-id="insights-and-conclusions">
-<span class="header-section-number">3.9</span> Insights and Conclusions</h2>
+</section><section id="insights-and-conclusions" class="level2"><h2 class="anchored" data-anchor-id="insights-and-conclusions">Insights and Conclusions</h2>
 <p>My comprehensive analysis of global market indices from 2000 to 2025 reveals several key insights that inform our understanding of volatility patterns and market behavior:</p>
 <ol type="1">
 <li><p><strong>Performance Hierarchy</strong>: The S&amp;P 500 has demonstrated superior risk-adjusted returns with the highest Sharpe ratio (0.3729) among all indices, followed by the German DAX (0.3106). Despite experiencing significant crisis periods, US equities have shown exceptional resilience and growth momentum, particularly in post-crisis recovery phases.</p></li>
@@ -1699,7 +1688,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">---</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="an">title:</span><span class="co"> "Zhijun H"</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
 <span id="cb11-4"><a href="#cb11-4"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
 <span id="cb11-5"><a href="#cb11-5"></a><span class="an">execute:</span></span>
 <span id="cb11-6"><a href="#cb11-6"></a><span class="co">  echo: true</span></span>

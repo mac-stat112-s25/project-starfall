@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>2&nbsp; Phoebe P – Stock Market Volatility: Patterns and Predictions</title>
+<title>Phoebe P – Stock Market Volatility: Patterns and Predictions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -236,19 +236,17 @@ cookieconsent.run({
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
-  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import"><span class="header-section-number">2.2</span> Data Import</a></li>
-  <li><a href="#price-distribution-analysis" id="toc-price-distribution-analysis" class="nav-link" data-scroll-target="#price-distribution-analysis"><span class="header-section-number">2.3</span> Price Distribution Analysis</a></li>
-  <li><a href="#time-series-analysis" id="toc-time-series-analysis" class="nav-link" data-scroll-target="#time-series-analysis"><span class="header-section-number">2.4</span> Time Series Analysis</a></li>
-  <li><a href="#volatility-analysis" id="toc-volatility-analysis" class="nav-link" data-scroll-target="#volatility-analysis"><span class="header-section-number">2.5</span> Volatility Analysis</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">2.6</span> Conclusion</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import">Data Import</a></li>
+  <li><a href="#price-distribution-analysis" id="toc-price-distribution-analysis" class="nav-link" data-scroll-target="#price-distribution-analysis">Price Distribution Analysis</a></li>
+  <li><a href="#time-series-analysis" id="toc-time-series-analysis" class="nav-link" data-scroll-target="#time-series-analysis">Time Series Analysis</a></li>
+  <li><a href="#volatility-analysis" id="toc-volatility-analysis" class="nav-link" data-scroll-target="#volatility-analysis">Volatility Analysis</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/EDA - Phoebe Pan.html">EDA</a></li><li class="breadcrumb-item"><a href="../src/EDA - Phoebe Pan.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Phoebe P</span></a></li></ol></nav><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Phoebe P</span>
-</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">Phoebe P</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -262,11 +260,9 @@ cookieconsent.run({
   
 
 
-</header><section id="introduction" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">2.1</span> Introduction</h2>
+</header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This document contains exploratory data analysis (EDA) for our group project, focusing on stock market volatility patterns and predictors across major global markets from 2000 to 2025. My analysis examines how different markets respond to global events, identifying patterns in price movements and volatility that will inform our predictive modeling efforts.</p>
-</section><section id="data-import" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="data-import">
-<span class="header-section-number">2.2</span> Data Import</h2>
+</section><section id="data-import" class="level2"><h2 class="anchored" data-anchor-id="data-import">Data Import</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Loading necessary packages</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)  <span class="co"># For data manipulation and visualization</span></span>
@@ -369,8 +365,7 @@ cookieconsent.run({
 </div>
 <p>This analysis provides a comprehensive overview of our dataset structure, covering six major global indices over a 25-year period. The data collection spans approximately 6,300-6,500 trading days per index, with minimal missing values (less than 2% per index). This robust dataset captures several complete market cycles, including two major global financial crises, providing an excellent foundation for studying volatility patterns.</p>
 <p>The S&amp;P 500 data is the most complete with no missing values, while Asian markets show slightly more gaps due to region-specific market closures. These gaps are not significant enough to impact our analysis of long-term market behavior patterns.</p>
-</section><section id="price-distribution-analysis" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="price-distribution-analysis">
-<span class="header-section-number">2.3</span> Price Distribution Analysis</h2>
+</section><section id="price-distribution-analysis" class="level2"><h2 class="anchored" data-anchor-id="price-distribution-analysis">Price Distribution Analysis</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Creating histograms of price distributions</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">ggplot</span>(market_data, <span class="fu">aes</span>(<span class="at">x =</span> adjusted, <span class="at">fill =</span> market_index)) <span class="sc">+</span></span>
@@ -395,8 +390,7 @@ cookieconsent.run({
 </div>
 <p>The histogram reveals fascinating differences in price distributions across global markets. By using a logarithmic scale, we can compare indices that trade at vastly different price levels. The S&amp;P 500 shows a multi-modal distribution, suggesting distinct market regimes over the 25-year period. Asian indices display wider distributions, indicating greater price volatility, while European markets show more concentrated price ranges.</p>
 <p>These distribution patterns reflect fundamental differences in market structure, sectoral composition, and investor behavior across regions. The right-skewed nature of most distributions highlights the general upward trajectory of markets over time, though with varying degrees of volatility and growth potential.</p>
-</section><section id="time-series-analysis" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="time-series-analysis">
-<span class="header-section-number">2.4</span> Time Series Analysis</h2>
+</section><section id="time-series-analysis" class="level2"><h2 class="anchored" data-anchor-id="time-series-analysis">Time Series Analysis</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Creating time series visualization with annotations</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>financial_events <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -435,8 +429,7 @@ cookieconsent.run({
 <p>The time series visualization tells a compelling story of market resilience and divergence over a quarter century. Three pivotal events stand out as watershed moments that reshaped market trajectories: the 2008 financial crisis, the 2020 COVID-19 pandemic, and the 2022 Russia-Ukraine conflict.</p>
 <p>The most striking feature is the exceptional post-2020 performance of the S&amp;P 500, which significantly outpaced other global indices. This divergence likely reflects the dominance of technology companies in the US market and aggressive monetary stimulus policies. European indices show more moderate growth patterns, while the Nikkei 225 displays a fascinating turnaround story beginning around 2013, coinciding with significant policy interventions in Japan.</p>
 <p>The Hang Seng shows the most volatile path among major indices, reflecting Hong Kong’s unique position at the intersection of Western market dynamics and Chinese economic influences. These divergent recovery patterns highlight how regional factors and policy responses can dramatically alter market trajectories following global shocks.</p>
-</section><section id="volatility-analysis" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="volatility-analysis">
-<span class="header-section-number">2.5</span> Volatility Analysis</h2>
+</section><section id="volatility-analysis" class="level2"><h2 class="anchored" data-anchor-id="volatility-analysis">Volatility Analysis</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Calculating returns and volatility measures</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>volatility_data <span class="ot">&lt;-</span> market_data <span class="sc">%&gt;%</span></span>
@@ -484,8 +477,7 @@ cookieconsent.run({
 <p>This volatility visualization reveals the heartbeat of global markets, showing how uncertainty propagates through the financial system during times of stress. The most prominent feature is volatility clustering—periods of high volatility tend to group together rather than appearing randomly distributed through time.</p>
 <p>The 2008 financial crisis triggered the most dramatic volatility response, with levels reaching extraordinary heights across all markets. The COVID-19 pandemic in 2020 produced the second-highest spike, though markets normalized more quickly than after the 2008 crisis. The Russia-Ukraine conflict in 2022 generated a more modest and shorter-lived volatility response, suggesting markets have become somewhat more resilient to geopolitical shocks.</p>
 <p>Asian markets consistently exhibit higher baseline volatility even during relatively calm periods, while European indices show more moderate volatility profiles. The S&amp;P 500 often displays the sharpest initial volatility spike when crises begin, but typically normalizes faster than other markets. This “first-in, first-out” pattern suggests the US market may function as a leading indicator for both market stress and subsequent recovery.</p>
-</section><section id="conclusion" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="conclusion">
-<span class="header-section-number">2.6</span> Conclusion</h2>
+</section><section id="conclusion" class="level2"><h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>This exploratory analysis reveals fundamental insights into global market behavior over a 25-year period that spans multiple economic cycles and crises. My key observations include:</p>
 <ul>
 <li><p><strong>Regional Volatility Signatures</strong>: Each market exhibits a distinctive volatility profile, with Asian markets consistently showing higher baseline volatility compared to their Western counterparts. The FTSE 100 demonstrates the most stability among all indices analyzed.</p></li>
@@ -1130,7 +1122,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Phoebe P"</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="an">execute:</span></span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="co">  echo: true</span></span>
