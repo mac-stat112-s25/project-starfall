@@ -201,6 +201,12 @@ To reproduce our analysis, follow these steps:
 
 Our analysis includes over 30 publication-quality visualizations. Highlights include:
 
+<p align="center">
+  <img src="https://mac-stat112-s25.github.io/project-starfall/index_files/figure-html/unnamed-chunk-1-1.png" width="700" alt="S&P 500 Index and Volatility">
+  <br>
+  <em>Figure 10: Turbulence Timeline - The Shifting Distribution of High Volatility Periods (2000-2025). by Zhijun and Phoebe (Team Starfall)</em>
+</p>
+
 - **Volatility Regime Heat Map**: A temporal visualization showing how markets transition between volatility states over 25 years
 - **Crisis Signature Comparison**: Side-by-side visualization of volatility patterns during different crisis types
 - **Sector Response Dashboard**: Interactive tool for exploring how different sectors respond to various market conditions
@@ -240,7 +246,7 @@ We express our sincere gratitude to:
 For questions or collaboration opportunities:
 
 - **Zhijun He**: zhe@macalester.edu
-- **Phoebe Pan**: ppan@macalester.edu
+- **Phoebe Pan**: ypan2@mac.edu
 
 ### Additional Resources
 - **Interactive Dashboard**: [Market Volatility Dashboard](https://mac-stat112-s25.github.io/project-starfall/)
