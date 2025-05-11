@@ -2,4 +2,59 @@
 title: "Proposal"
 ---
 
-Your proposal will go here.
+## Team Members
+- Zhijun He
+- Phoebe Pan
+
+## Project Description
+
+Our project will analyze historical stock market fluctuations from 2000-2025, examining how major economic, political, and global events impact market volatility across different sectors. We'll collect and analyze comprehensive market data to identify patterns that precede significant market movements and evaluate the effectiveness of various prediction models in anticipating market corrections and rallies.
+
+## Motivation and Inspiration
+
+Our team selected this project due to its practical relevance in the financial world. Understanding market volatility has direct applications for investment strategies and risk management, which can benefit both individual investors and financial institutions. The abundance of historical market data spanning multiple market cycles, including several major crashes and recoveries, provides us with rich material for analysis and pattern recognition.
+
+We are particularly drawn to the interdisciplinary nature of this project, which allows us to combine financial knowledge, statistical analysis, and machine learning techniques. Recent market fluctuations due to global events have only heightened our interest, as they provide timely case studies for our analysis. Both Zhijun and Phoebe share a strong interest in financial markets and quantitative analysis, making this project a natural fit for our skills and academic goals.
+
+## Implementation Plan
+
+This accelerated 2-week plan begins on April 9, 2025 and concludes on April 23, 2025.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Project Timeline and Responsibilities"
+
+library(knitr)
+timeline_data <- data.frame(
+  Task = c("Data Collection", "Historical Event Mapping", "Exploratory Data Analysis", 
+           "Pattern Identification", "Model Development", "Model Evaluation", 
+           "Visualization Dashboard", "Documentation", "Final Presentation"),
+  Deliverable = c("Curated dataset of market indices, sector ETFs, and volatility metrics",
+                 "Timeline of major events correlated with market movements",
+                 "Initial visualizations and statistical summaries",
+                 "Report on identified volatility patterns",
+                 "Implementation of prediction models",
+                 "Performance metrics and comparative analysis",
+                 "Interactive web interface for exploring findings",
+                 "Project report, code documentation, and user guide",
+                 "Slides and demonstration"),
+  `Team Member` = c("Zhijun He", "Phoebe Pan", "Zhijun He", 
+                    "Both members", "Both members", "Phoebe Pan", 
+                    "Zhijun He", "Both members", "Both members"),
+  Timeline = c("April 9-11", "April 9-11", "April 12-14", 
+               "April 14-16", "April 15-18", "April 18-20", 
+               "April 18-21", "April 19-22", "April 23")
+)
+
+kable(timeline_data)
+```
+
+## Expected Outcomes
+
+Upon completion of this two-week project, we expect to deliver:
+
+- A comprehensive analysis of market volatility patterns from 2000-2025
+- Identification of leading indicators for market shifts
+- Evaluation of prediction model performance across different market conditions
+- Interactive visualization dashboard for exploring market volatility patterns
+- Recommendations for investors based on historical pattern analysis

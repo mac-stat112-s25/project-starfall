@@ -1,0 +1,11 @@
+---
+title: "Effective teamwork"
+author: "Phoebe Pan"
+---
+
+
+In this article "What Google Learned From Its Quest to Build the Perfect Team", Charles Duhigg explores how Google launched an internal research initiative called Project Aristotle to investigate what makes a team successful. The company studied more than 180 teams to determine why some performed well while others did not, even when team members had similar talent and access to resources.
+
+Google’s research revealed that psychological safety was the most important ingredient for team success. When members felt safe to speak up, take risks, and admit mistakes without fear, teams performed better. In addition, four other factors played key roles: dependability, structure and clarity, meaning, and impact.
+
+Interestingly, the team composition mattered less than the collaboration. Teams that communicated openly and respected each other outperformed even the most technically skilled groups. In short, trust and connection beat talent alone.

@@ -1,0 +1,299 @@
+---
+title: "Exploratory Data Analysis: Zhijun He‘s EDA2"
+author: "Zhijun He"
+format: html
+---
+
+## Introduction
+In this document, I present my exploratory data analysis (EDA) for our group project, focusing on stock market volatility patterns and predictors across major global markets from 2000 to 2025.
+
+## Data Import and Preparation
+
+```{r setup, message=FALSE, warning=FALSE}
+# I'll first load all necessary packages for my analysis
+library(tidyverse)  # For data manipulation and visualization
+library(tidyquant)  # For accessing financial data
+library(lubridate)  # For handling dates
+library(TTR)        # For technical trading rules functions
+library(zoo)        # For time series objects
+```
+
+```{r data_import, message=FALSE, warning=FALSE}
+# I've selected these major global indices for my analysis
+indices <- c(
+  "^GSPC" = "S&P 500",       # USA
+  "^FTSE" = "FTSE 100",      # UK
+  "^N225" = "Nikkei 225",    # Japan
+  "^GDAXI" = "DAX",          # Germany
+  "^FCHI" = "CAC 40",        # France
+  "^HSI" = "Hang Seng"       # Hong Kong
+)
+
+# I'm importing daily data for all indices from 2000 onwards
+market_data <- tq_get(
+  names(indices),
+  get = "stock.prices",
+  from = "2000-01-01",
+  to = Sys.Date()
+) %>%
+  # Adding descriptive names for better readability in my visualizations
+  mutate(index_name = indices[symbol])
+```
+
+## Data Exploration
+
+```{r data_structure, message=FALSE}
+# Let me examine the structure and quality of my dataset
+cat("My Dataset Overview:\n")
+cat("- Number of observations:", nrow(market_data), "\n")
+cat("- Date range:", min(market_data$date), "to", max(market_data$date), "\n")
+cat("- Number of indices:", length(unique(market_data$symbol)), "\n\n")
+
+# I'll check for missing values in my dataset
+missing_values <- market_data %>%
+  summarize(across(everything(), ~sum(is.na(.)))) %>%
+  pivot_longer(cols = everything(), 
+               names_to = "Variable", 
+               values_to = "Missing_Count") %>%
+  filter(Missing_Count > 0)  # Only showing variables with missing values
+
+if(nrow(missing_values) > 0) {
+  print(missing_values)
+} else {
+  cat("I found no missing values in my dataset.\n")
+}
+
+# I'll take a quick look at the first few rows
+head(market_data)
+```
+
+My dataset contains daily trading information for six major global indices from January 2000 onwards. I've collected date, opening, high, low, and closing prices, trading volume, and adjusted closing price for each index. This comprehensive dataset will allow me to analyze market behavior across different regions and economic conditions.
+
+## Volatility Analysis
+
+```{r calculate_returns, message=FALSE}
+# I'll calculate daily returns and volatility metrics for my analysis
+market_analysis <- market_data %>%
+  group_by(symbol, index_name) %>%
+  arrange(date) %>%
+  # Computing daily percentage returns
+  mutate(
+    daily_return = (adjusted / lag(adjusted) - 1) * 100,
+    # Adding a 20-day rolling volatility measure (annualized)
+    rolling_vol_20 = rollapply(
+      daily_return,
+      width = 20,
+      FUN = function(x) sd(x, na.rm = TRUE) * sqrt(252),
+      align = "right",
+      fill = NA
+    )
+  ) %>%
+  ungroup()
+```
+
+## Visualization
+
+```{r price_trends, fig.width=10, fig.height=6, message=FALSE}
+# I'll visualize the long-term price trends for all indices
+ggplot(market_data, aes(x = date, y = adjusted, color = index_name)) +
+  geom_line(linewidth = 0.7, alpha = 0.8) +
+  labs(
+    title = "Adjusted Closing Prices of Major Global Indices (2000-Present)",
+    subtitle = "My comparison of long-term trends across different markets",
+    x = "Year",
+    y = "Adjusted Closing Price",
+    color = "Index"
+  ) +
+  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+  scale_y_continuous(labels = scales::comma) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+In my price trend analysis, I observe long-term upward trajectories for all six major global indices, though with varying magnitudes and volatility. I find that the S&P 500 demonstrates the most consistent growth pattern. In contrast, I notice that the Hang Seng and Nikkei 225 exhibit both higher price levels and greater volatility, particularly during the financial crises of 2008 and 2020. My analysis shows that while all indices suffered notable declines during these periods, each demonstrated its own distinctive recovery pace.
+
+```{r volume_trends, fig.width=10, fig.height=6, message=FALSE}
+# I'll normalize the volume data to make my comparisons more meaningful across indices
+normalized_volume <- market_data %>%
+  group_by(symbol) %>%
+  mutate(
+    norm_volume = volume / mean(volume, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+# Now I'll create my volume visualization
+ggplot(normalized_volume, aes(x = date, y = norm_volume, color = index_name)) +
+  geom_line(alpha = 0.7) +
+  labs(
+    title = "Normalized Trading Volume by Index (2000-Present)",
+    subtitle = "My analysis of volume patterns relative to mean levels",
+    x = "Year",
+    y = "Normalized Trading Volume",
+    color = "Index"
+  ) +
+  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+  scale_y_continuous(labels = scales::comma) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+My analysis of normalized trading volumes reveals significant insights across indices. I've normalized the data to enable fair comparisons between markets of different sizes. I can clearly identify peaks in trading activity during major market events like the 2008 financial crisis and the 2020 pandemic. In my observations, the S&P 500 and Hang Seng Index demonstrate the most volatile trading patterns, particularly after 2010. I believe this increased volatility likely stems from growing global participation in the US and Chinese markets.
+
+```{r volatility_comparison, fig.width=10, fig.height=6, message=FALSE}
+# I'll visualize the volatility patterns I've calculated
+market_analysis %>%
+  filter(!is.na(rolling_vol_20)) %>%
+  ggplot(aes(x = date, y = rolling_vol_20, color = index_name)) +
+  geom_line(alpha = 0.8) +
+  labs(
+    title = "20-Day Rolling Volatility of Major Indices (Annualized)",
+    subtitle = "My analysis of market uncertainty over time",
+    x = "Year",
+    y = "Annualized Volatility (%)",
+    color = "Index"
+  ) +
+  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+  scale_y_continuous(labels = scales::percent_format(scale = 0.01)) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+## Market Correlation Analysis
+
+```{r correlation_analysis, fig.width=10, fig.height=8, message=FALSE}
+# I want to understand how these markets move together
+# First I'll prepare daily returns by index
+daily_returns <- market_analysis %>%
+  select(date, symbol, daily_return) %>%
+  filter(!is.na(daily_return)) %>%
+  pivot_wider(
+    names_from = symbol,
+    values_from = daily_return
+  )
+
+# Now I'll calculate my correlation matrix
+cor_matrix <- cor(
+  daily_returns %>% select(-date), 
+  use = "pairwise.complete.obs"
+)
+
+# Converting to long format for my visualization
+cor_data <- cor_matrix %>%
+  as.data.frame() %>%
+  rownames_to_column("Index1") %>%
+  pivot_longer(
+    cols = -Index1,
+    names_to = "Index2",
+    values_to = "Correlation"
+  )
+
+# Mapping index symbols to names for better readability in my plot
+cor_data <- cor_data %>%
+  mutate(
+    Index1_Name = indices[Index1],
+    Index2_Name = indices[Index2]
+  )
+
+# Creating my correlation heatmap
+ggplot(cor_data, aes(x = Index1_Name, y = Index2_Name, fill = Correlation)) +
+  geom_tile() +
+  geom_text(aes(label = round(Correlation, 2)), color = "white", size = 4) +
+  scale_fill_gradient2(
+    low = "blue", mid = "white", high = "red",
+    midpoint = 0.5, limits = c(0, 1)
+  ) +
+  labs(
+    title = "My Correlation Analysis of Daily Returns (2000-Present)",
+    subtitle = "Higher values indicate stronger co-movement between markets",
+    x = NULL, y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(face = "bold")
+  )
+```
+
+## Seasonal Patterns
+
+```{r seasonal_analysis, fig.width=10, fig.height=6, message=FALSE}
+# I'm interested in identifying seasonal patterns in returns
+seasonal_data <- market_analysis %>%
+  mutate(
+    month = month(date, label = TRUE),
+    year = year(date)
+  ) %>%
+  filter(!is.na(daily_return))
+
+# I'll calculate average monthly returns by index
+monthly_returns <- seasonal_data %>%
+  group_by(index_name, month) %>%
+  summarize(
+    avg_return = mean(daily_return, na.rm = TRUE),
+    volatility = sd(daily_return, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Now I'll visualize my monthly return patterns
+ggplot(monthly_returns, aes(x = month, y = avg_return, fill = index_name)) +
+  geom_col(position = "dodge") +
+  geom_errorbar(
+    aes(ymin = avg_return - volatility/sqrt(20), 
+        ymax = avg_return + volatility/sqrt(20)),
+    position = position_dodge(0.9),
+    width = 0.2
+  ) +
+  labs(
+    title = "My Analysis of Average Monthly Returns by Index",
+    subtitle = "With standard error bars to show confidence in my findings",
+    x = "Month",
+    y = "Average Daily Return (%)",
+    fill = "Index"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold")
+  )
+```
+
+## Summary Statistics
+
+```{r summary_stats, message=FALSE}
+# I'll generate comprehensive summary statistics for my report
+market_summary <- market_analysis %>%
+  group_by(index_name) %>%
+  summarize(
+    avg_daily_return = mean(daily_return, na.rm = TRUE),
+    median_daily_return = median(daily_return, na.rm = TRUE),
+    volatility = sd(daily_return, na.rm = TRUE),
+    min_return = min(daily_return, na.rm = TRUE),
+    max_return = max(daily_return, na.rm = TRUE),
+    sharpe_ratio = mean(daily_return, na.rm = TRUE) / sd(daily_return, na.rm = TRUE),
+    data_completeness = 1 - (sum(is.na(daily_return)) / n())
+  ) %>%
+  arrange(desc(sharpe_ratio))
+
+# I'll display my summary statistics in a clean table
+market_summary %>%
+  knitr::kable(
+    digits = 4,
+    caption = "My Summary Statistics by Index (2000-Present)"
+  )
+```
+
+## Conclusion
+
+Through my exploratory analysis, I've uncovered distinct patterns in volatility, returns, and trading activity across major global stock indices. My optimized visualizations highlight market correlations, seasonal patterns, and the varying impacts of major financial events across different markets. These insights from my analysis provide a foundation for our group's further investigation of volatility predictors and potential trading strategies. As I progress with this project, I plan to explore more advanced volatility modeling techniques and examine how macroeconomic factors influence these patterns across different regions.
